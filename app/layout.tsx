@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Zuperix Team' }],
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/logo_transparant.png', type: 'image/svg+xml' },
       { url: '/icon-light-32x32.png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
       { url: '/icon-dark-32x32.png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
     ],
