@@ -55,10 +55,10 @@ const features: Feature[] = [
       "Extract and index text from images, PDFs, and screenshots. Make every pixel in your library searchable.",
   },
   {
-    image: "/images/feature-collections.jpg",
-    title: "Collections & Categories",
+    image: "/images/comment.png",
+    title: "Collaborative Annotations",
     description:
-      "Organize assets into smart collections and custom categories. Build the structure your team needs.",
+      "Engage with your team through precision annotations and real-time commentary directly on your assets.",
   },
 ]
 
@@ -101,7 +101,7 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
 
 export function Features() {
   return (
-    <section id="features" className="py-24 sm:py-32 px-6" aria-labelledby="features-heading">
+    <section id="features" className="py-16 sm:py-20 px-6" aria-labelledby="features-heading">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div 

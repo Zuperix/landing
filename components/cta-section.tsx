@@ -1,14 +1,15 @@
 "use client"
 
-import { ArrowRight, Github, Sparkles } from "lucide-react"
+import { ArrowRight, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { Magnetic } from "@/components/ui/magnetic-wrapper"
 
 export function CtaSection() {
   return (
     <section 
-      className="py-32 sm:py-40 px-6 relative overflow-hidden"
+      className="py-20 sm:py-28 px-6 relative overflow-hidden"
       aria-labelledby="cta-heading"
     >
       {/* Background glow with subtle pulse */}
@@ -56,7 +57,6 @@ export function CtaSection() {
           transition={{ delay: 0.2, type: "spring" }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs font-medium tracking-wide mb-8"
         >
-          <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
           Free forever for personal use
         </motion.div>
         
@@ -77,12 +77,15 @@ export function CtaSection() {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Magnetic intensity={0.2}>
-            <button
+            <Button
               className="w-full sm:w-auto bg-brand hover:bg-brand-dim text-primary-foreground font-semibold rounded-lg px-8 h-13 text-base shadow-lg shadow-brand/20 hover:shadow-xl hover:shadow-brand/30 transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+              asChild
             >
-              Deploy Zuperix
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </button>
+              <Link href="/pricing">
+                Deploy Zuperix
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </Magnetic>
           <Magnetic intensity={0.2}>
             <Button
@@ -102,8 +105,9 @@ export function CtaSection() {
         {/* Trust badges */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
           {[
+            "Most Affordable DAM",
             "No credit card required",
-            "MIT License",
+            "GNU AGPL v3",
             "99.9% uptime",
           ].map((badge, i) => (
             <motion.div 

@@ -102,7 +102,7 @@ export function Comparison() {
   const { ref: tableRef, isInView: tableInView } = useAnimateInView<HTMLDivElement>()
 
   return (
-    <section className="py-24 sm:py-32 px-6 bg-secondary/30" aria-labelledby="comparison-heading">
+    <section className="py-16 sm:py-20 px-6 bg-secondary/30" aria-labelledby="comparison-heading">
       <div className="max-w-4xl mx-auto">
         <div 
           ref={headerRef}

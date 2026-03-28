@@ -82,7 +82,7 @@ export function HowItWorks() {
   return (
     <section 
       id="how-it-works" 
-      className="py-24 sm:py-32 px-6 bg-secondary/30"
+      className="py-16 sm:py-20 px-6 bg-secondary/30"
       aria-labelledby="how-it-works-heading"
     >
       <div className="max-w-7xl mx-auto">

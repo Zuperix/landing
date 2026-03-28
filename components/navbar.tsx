@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useCallback } from "react"
 import { Github, Menu, X, ArrowRight, Star } from "lucide-react"
@@ -9,10 +10,11 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Magnetic } from "@/components/ui/magnetic-wrapper"
 
 const NAV_ITEMS = [
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Developers", href: "#developers" },
-  { label: "Use cases", href: "#use-cases" },
+  { label: "Features", href: "/#features" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Developers", href: "/#developers" },
+  { label: "Use cases", href: "/#use-cases" },
+  { label: "Pricing", href: "/pricing" },
 ]
 
 export function Navbar() {
@@ -40,8 +42,16 @@ export function Navbar() {
   }, [])
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If it's a full path (like /pricing), let it navigate normally
+    if (!href.startsWith("#") && !href.startsWith("/#")) return
+
+    // If we're not on the home page, let the browser handle the navigation to the home page + hash
+    if (window.location.pathname !== "/") return
+
     e.preventDefault()
-    const target = document.querySelector(href)
+    const targetId = href.replace(/^\/?#/, "")
+    const target = document.getElementById(targetId)
+    
     if (target) {
       const offset = 80
       const bodyRect = document.body.getBoundingClientRect().top
@@ -99,32 +109,36 @@ export function Navbar() {
           )}
         >
           {/* Logo */}
-          <motion.a 
-            href="/" 
+          <motion.div 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg z-10"
-            aria-label="Zuperix Home"
+            className="z-10"
           >
-            <div className="w-9 h-9 relative">
-              <Image 
-                src="/logo_transparant.png" 
-                alt="Zuperix Logo" 
-                fill 
-                className="object-contain"
-                priority
-              />
-            </div>
-            <span className="font-bold text-foreground tracking-tight text-xl">Zuperix</span>
-          </motion.a>
+            <Link 
+              href="/" 
+              className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
+              aria-label="Zuperix Home"
+            >
+              <div className="w-9 h-9 relative">
+                <Image 
+                  src="/logo_transparant.png" 
+                  alt="Zuperix Logo" 
+                  fill 
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <span className="font-bold text-foreground tracking-tight text-xl">Zuperix</span>
+            </Link>
+          </motion.div>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2" aria-label="Main navigation">
             {NAV_ITEMS.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+                onClick={(e) => handleNavClick(e as any, item.href)}
                 className={cn(
                   "relative text-sm px-4 py-2 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand",
                   activeSection === item.href.slice(1)
@@ -140,7 +154,7 @@ export function Navbar() {
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -162,9 +176,12 @@ export function Navbar() {
               <Button 
                 size="sm" 
                 className="bg-brand hover:bg-brand-dim text-white border-0 gap-1.5 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 px-5 h-10 active:scale-95 transition-all"
+                asChild
               >
-                Get Started
-                <ArrowRight className="w-3.5 h-3.5" />
+                <Link href="/pricing">
+                  Get Started
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </Button>
             </Magnetic>
           </div>
@@ -193,13 +210,10 @@ export function Navbar() {
             >
               <nav className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-2">
                 {NAV_ITEMS.map((item, i) => (
-                  <motion.a
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                  <Link
                     key={item.label}
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    onClick={(e) => handleNavClick(e as any, item.href)}
                     className={cn(
                       "text-lg py-3 px-4 rounded-xl transition-all duration-200",
                       activeSection === item.href.slice(1)
@@ -208,7 +222,7 @@ export function Navbar() {
                     )}
                   >
                     {item.label}
-                  </motion.a>
+                  </Link>
                 ))}
                 <div className="flex flex-col gap-3 pt-6 border-t border-border mt-4">
                   <Button 
@@ -229,9 +243,12 @@ export function Navbar() {
                   </Button>
                   <Button 
                     className="w-full bg-brand hover:bg-brand-dim text-white h-12 text-base px-6 gap-2"
+                    asChild
                   >
-                    Get Started
-                    <ArrowRight className="w-4 h-4" />
+                    <Link href="/pricing">
+                      Get Started
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </Button>
                 </div>
               </nav>

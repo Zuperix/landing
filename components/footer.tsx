@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import Image from "next/image"
 import { Github, Twitter, MessageCircle } from "lucide-react"
 import { useAnimateInView } from "@/hooks/use-animate-in-view"
@@ -14,10 +15,11 @@ const footerLinks: FooterLinkGroup[] = [
   {
     heading: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "How it works", href: "#how-it-works" },
-      { label: "Use cases", href: "#use-cases" },
-      { label: "Changelog", href: "#" },
+      { label: "Features", href: "/#features" },
+      { label: "How it works", href: "/#how-it-works" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Use cases", href: "/#use-cases" },
+      { label: "Changelog", href: "/changelog" },
     ],
   },
   {
@@ -62,7 +64,7 @@ export function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-2">
-            <a 
+            <Link 
               href="/" 
               className="inline-flex items-center gap-2.5 mb-5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-card rounded-lg"
               aria-label="Zuperix Home"
@@ -77,7 +79,7 @@ export function Footer() {
                 />
               </div>
               <span className="font-semibold text-foreground tracking-tight text-lg">Zuperix</span>
-            </a>
+            </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
               AI-powered digital asset management. Open source, self-hostable, and built for teams that move fast.
             </p>
@@ -111,16 +113,12 @@ export function Footer() {
               <ul className="flex flex-col gap-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus-visible:text-brand"
-                      {...(link.href.startsWith("http") && {
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                      })}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -130,7 +128,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Zuperix. Open-source under the MIT License.
+            © {new Date().getFullYear()} Zuperix. Open source under the GNU AGPL v3.
           </p>
           <div className="flex items-center gap-6">
             <a 

@@ -173,7 +173,7 @@ export function WebhooksSection() {
   const duplicatedItems = [...items, ...items, ...items]
 
   return (
-    <section className="pt-4 sm:pt-6 pb-24 sm:pb-32 px-6 overflow-hidden bg-background">
+    <section className="pt-4 sm:pt-6 pb-16 sm:pb-20 px-6 overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         
         {/* Text Section */}

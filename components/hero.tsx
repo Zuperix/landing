@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState, useEffect, useCallback, useRef } from "react"
 import { ArrowRight, Play, Search, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -106,7 +107,7 @@ export function Hero() {
     >
       {/* Subtle grid background with mouse parallax */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-0"
         aria-hidden="true"
         style={{
           x: bgX,
@@ -133,19 +134,35 @@ export function Hero() {
         initial="hidden"
         animate="visible"
         style={{ opacity: heroOpacity, scale: heroScale }}
-        className="flex flex-col items-center"
+        className="relative z-10 flex flex-col items-center"
       >
         {/* Badge */}
-        <motion.div
-          variants={itemVariants}
-          className="relative mb-8 flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs font-medium tracking-wide"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
-          </span>
-          Open Source · Self-Hostable · AI-Native
-        </motion.div>
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-8">
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs font-medium tracking-wide"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
+            </span>
+            Open Source (AGPL) · AI-Native
+          </motion.div>
+          
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Link
+              href="/pricing"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 text-muted-foreground text-xs font-medium tracking-wide hover:border-brand/30 hover:text-foreground transition-all cursor-pointer group/cloud"
+            >
+              Cloud version available for zero-hassle setup
+              <ArrowRight className="w-3 h-3 group-hover/cloud:translate-x-0.5 transition-transform" aria-hidden="true" />
+            </Link>
+          </motion.div>
+        </div>
 
         {/* Heading */}
         <motion.h1
@@ -161,9 +178,9 @@ export function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="relative text-center text-base sm:text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed text-pretty"
+          className="relative text-center text-base sm:text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed text-pretty"
         >
-          Search, tag, and manage images, videos, and files using AI-powered natural language. Built for developers, loved by teams.
+          The most affordable AI-powered DAM. Search, tag, and manage images, videos, and files using natural language. Built for developers, loved by teams.
         </motion.p>
 
         {/* Animated search bar */}
@@ -197,9 +214,12 @@ export function Hero() {
             <Button
               size="lg"
               className="w-full sm:w-auto bg-brand hover:bg-brand-dim text-primary-foreground border-0 gap-2 px-8 h-12 text-base shadow-lg shadow-brand/20 hover:shadow-xl hover:shadow-brand/30 transition-all active:scale-95"
+              asChild
             >
-              Get Started Free
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              <Link href="/pricing">
+                Get Started Free
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </Button>
           </Magnetic>
           <Magnetic intensity={0.2}>

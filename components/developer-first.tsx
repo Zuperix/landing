@@ -52,7 +52,7 @@ function CodeBlock({ code, index }: { code: string; index: number }) {
   }
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -83,8 +83,8 @@ function PillarCard({ pillar, index }: { pillar: Pillar; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: 0.7, 
+      transition={{
+        duration: 0.7,
         delay: (index % 2) * 0.1,
         ease: [0.21, 0.47, 0.32, 0.98] as const
       }}
@@ -106,11 +106,11 @@ function PillarCard({ pillar, index }: { pillar: Pillar; index: number }) {
 
 export function DeveloperFirst() {
   return (
-    <section id="developers" className="pt-24 sm:pt-32 pb-4 sm:pb-6 px-6" aria-labelledby="developers-heading">
+    <section id="developers" className="pt-16 sm:pt-32 pb-4 sm:pb-6 px-6" aria-labelledby="developers-heading">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           {/* Left: text */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -118,21 +118,21 @@ export function DeveloperFirst() {
             className="lg:w-80 shrink-0 lg:sticky lg:top-24 mt-2"
           >
             <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-4">Developer-first</p>
-            <h2 
+            <h2
               id="developers-heading"
               className="text-balance font-bold text-3xl sm:text-4xl text-foreground mb-5"
             >
               Built for builders.
             </h2>
             <p className="text-muted-foreground leading-relaxed text-pretty mb-6 text-sm sm:text-base">
-              Zuperix ships as a fully open-source platform. Extend it, fork it, self-host it — no vendor lock-in, ever.
+              Zuperix is a fully open-source platform under the GNU AGPL v3. Extend it, fork it, self-host it — the project stays open for the community, forever.
             </p>
-            
+
             {/* Tech stack pills */}
             <div className="flex flex-wrap gap-2">
               {["TypeScript", "NestJS", "OpenSearch", "PostgreSQL", "Docker"].map((tech, i) => (
-                <motion.span 
-                  key={tech} 
+                <motion.span
+                  key={tech}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}

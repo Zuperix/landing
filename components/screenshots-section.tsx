@@ -9,12 +9,12 @@ export function ScreenshotsSection() {
   const { ref: gridRef, isInView: gridInView } = useAnimateInView<HTMLDivElement>()
 
   return (
-    <section className="py-24 sm:py-32 px-6" aria-labelledby="product-heading">
+    <section className="py-12 sm:py-16 px-6" aria-labelledby="product-heading">
       <div className="max-w-7xl mx-auto">
         <div 
           ref={headerRef}
           className={cn(
-            "text-center mb-16 transition-all duration-700",
+            "text-center mb-12 transition-all duration-700",
             headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}
         >
@@ -59,15 +59,32 @@ export function ScreenshotsSection() {
                 className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               />
             </div>
-            <div className="px-5 py-4 border-t border-border">
-              <p className="text-sm font-semibold text-foreground">AI powered search</p>
-              <p className="text-xs text-muted-foreground mt-1">Search using natural language</p>
+            <div className="px-5 py-5 border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold text-foreground">AI powered search</p>
+                <p className="text-xs text-muted-foreground mt-1">Search using natural language</p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="px-2 py-1 rounded bg-brand/10 border border-brand/20 text-[10px] font-bold text-brand uppercase tracking-wider">
+                  Semantic
+                </div>
+                <div className="px-2 py-1 rounded bg-secondary border border-border text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                  240ms
+                </div>
+                <div className="flex -space-x-1.5 ml-2">
+                  {[1, 2, 3].map((_, i) => (
+                    <div key={i} className="w-5 h-5 rounded-full border border-card bg-muted-foreground/20 flex items-center justify-center text-[8px] font-bold">
+                      {String.fromCharCode(65 + i)}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Smaller screenshots stack */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            {/* Search screenshot */}
+            {/* Comments & Annotations screenshot */}
             <div 
               className="rounded-2xl border border-border overflow-hidden shadow-lg shadow-black/10 group hover:border-brand/30 hover:shadow-xl transition-all duration-300 flex-1 bg-card"
               style={{ transitionDelay: "100ms" }}
@@ -79,28 +96,28 @@ export function ScreenshotsSection() {
                   <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
                 </div>
                 <div className="flex-1 flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground font-mono">Natural Language Search</span>
+                  <span className="text-xs text-muted-foreground font-mono">Asset Discussions</span>
                 </div>
                 <div className="w-8" aria-hidden="true" />
               </div>
               <div className="relative overflow-hidden">
                 <Image
-                  src="/images/search-demo.jpg"
-                  alt="Natural language search interface in Zuperix with instant results"
+                  src="/images/comment.png"
+                  alt="Zuperix interface showing interactive comments and asset annotations"
                   width={480}
                   height={260}
                   className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                  quality={85}
+                  quality={100}
                 />
               </div>
               <div className="px-4 py-3 border-t border-border">
-                <p className="text-sm font-semibold text-foreground">Natural language search</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Results in milliseconds</p>
+                <p className="text-sm font-semibold text-foreground">Interactive Comments</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Annotate directly on assets</p>
               </div>
             </div>
 
             {/* Face tagging card */}
-            <div 
+            {/* <div 
               className="rounded-2xl border border-border bg-card p-5 flex flex-col gap-4 hover:border-brand/30 hover:shadow-lg transition-all duration-300 group"
               style={{ transitionDelay: "200ms" }}
             >
@@ -145,7 +162,7 @@ export function ScreenshotsSection() {
               <p className="text-xs text-muted-foreground leading-relaxed">
                 Auto-detected 14 unique individuals across your media library. Click to view collections.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
