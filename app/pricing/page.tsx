@@ -4,71 +4,68 @@ import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { Check, X, ArrowRight, Zap, Shield, Globe, Cpu } from "lucide-react"
+import { Check, X, ArrowRight, Zap, Shield, Globe, Cpu, Medal, TimerIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { cn } from "@/lib/utils"
 
 const PRICING_TIERS = [
   {
-    name: "Platinum",
-    price: "99",
-    description: "For enterprises requiring maximum scale and dedicated intelligence.",
-    features: [
-      "Unlimited Assets & Collections",
-      "Dedicated AI Cluster (Highest Priority)",
-      "24/7 Priority Engineer Support",
-      "Custom Webhooks & API Rate Limits",
-      "SSO & SAML Authentication",
-      "10TB Managed Cloud Storage",
-    ],
-    highlight: true,
-    icon: Shield,
-    cta: "Contact Sales",
-  },
-  {
     name: "Gold",
     price: "50",
-    description: "For growing teams that need performance and advanced features.",
+    description:
+      "Ideal for growing teams that need powerful features and reliable performance.",
     features: [
-      "Up to 100,000 Assets",
-      "High-Priority AI Processing",
-      "Business Hours Support",
-      "Advanced Analytics & Insights",
-      "Role-Based Access Control",
-      "1TB Managed Cloud Storage",
+      "Unlimited Users",
+      "SSO Authentication",
+      "Advanced Natural Language Search",
+      "Advanced Integrations",
+      "Business Hours Priority Support",
+      "Custom branding and whitelabeling",
+      "Detailed Analytics & Insights",
+      "99.9% Uptime SLA",
+      "2TB Cloud Storage",
     ],
-    icon: Zap,
-    cta: "Start 14-day Trial",
+    highlight: true,
+    icon: Medal,
+    iconColor: "text-yellow-400",
+    cta: "Start Free Trial",
   },
   {
     name: "Silver",
     price: "25",
-    description: "Perfect for small teams and professionals.",
+    description:
+      "Great for small teams looking to stay organized and move faster.",
     features: [
-      "Up to 25,000 Assets",
-      "Standard AI Processing",
+      "Up to 25 Users",
+      "Smart Natural Language Search",
+      "Basic Integrations",
+      "Facial Recognition",
+      "Public API & Webhooks",
+      "Advanced Search Filters",
       "Email Support",
-      "Up to 5 Team Members",
-      "Basic Search Syntax",
-      "250GB Managed Cloud Storage",
+      "500GB Cloud Storage",
     ],
-    icon: Globe,
-    cta: "Start 14-day Trial",
+    icon: Medal,
+    iconColor: "text-slate-300",
+    cta: "Start Free Trial",
   },
   {
     name: "Bronze",
     price: "10",
-    description: "Essential tools for individual creators.",
+    description:
+      "Simple and affordable plan for individuals and early-stage projects.",
     features: [
-      "Up to 5,000 Assets",
-      "Essential AI Tagging",
+      "Up to 5 Users",
+      "Basic Search Features",
+      "Workflow Automation",
+      "Public Sharing Portals",
       "Community Support",
-      "Single User License",
-      "Standard Performance",
-      "50GB Managed Cloud Storage",
+      "OCR & Text Extraction",
+      "50GB Cloud Storage",
     ],
-    icon: Cpu,
+    icon: Medal,
+    iconColor: "text-orange-700",
     cta: "Get Started",
   },
 ]
@@ -107,7 +104,7 @@ export default function PricingPage() {
           </div>
 
           {/* Pricing Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {PRICING_TIERS.map((tier, i) => (
               <motion.div
                 key={tier.name}
@@ -123,9 +120,9 @@ export default function PricingPage() {
                   <div className="flex items-center justify-between mb-6">
                     <div className={cn(
                       "w-12 h-12 rounded-xl flex items-center justify-center transition-colors",
-                      tier.highlight ? "bg-brand text-white" : "bg-brand/10 text-brand"
+                      tier.highlight ? "bg-white/10 text-white" : "bg-secondary text-foreground"
                     )}>
-                      <tier.icon className="w-6 h-6" />
+                      <tier.icon className={cn("w-6 h-6", tier.iconColor)} />
                     </div>
                     {tier.highlight && (
                       <span className="text-[10px] font-bold text-brand tracking-widest uppercase bg-brand/10 px-2 py-1 rounded-full border border-brand/20">
@@ -169,6 +166,44 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Custom Plan Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-24 px-4"
+          >
+            <div className="max-w-7xl mx-auto rounded-3xl border border-border bg-secondary/5 p-8 sm:p-12 text-center lg:text-left hover:border-brand/30 transition-colors">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full border border-border bg-background text-[10px] font-bold tracking-widest uppercase mb-4">
+                    Enterprise
+                  </div>
+                  <h2 className="text-3xl font-bold mb-3 tracking-tight">Scale with Zuperix Enterprise</h2>
+                  <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-pretty text-sm">
+                    High-volume assets, custom infrastructure, and 24/7 priority support.
+                  </p>
+
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-3 mb-8">
+                    {["SSO/SAML", "Private VPC", "Custom SLA", "24/7 Support"].map((item) => (
+                      <div key={item} className="flex items-center gap-2 text-xs font-medium text-foreground/60">
+                        <Check className="w-3.5 h-3.5 text-brand" />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="shrink-0 flex flex-col items-center lg:items-end gap-5">
+                  <Button className="h-11 px-8 bg-brand hover:bg-brand-dim text-white font-bold rounded-xl active:scale-95 transition-all group">
+                    Coming Soon
+                    <TimerIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Cloud vs Self-Host Comparison Table */}
           <div className="mb-24">
@@ -250,7 +285,7 @@ export default function PricingPage() {
               <div className="flex-1">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">100% Open source at its heart</h2>
                 <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-pretty">
-                  Zuperix is licensed under the GNU AGPL v3. We believe in data ownership and the power of the open-source community. 
+                  Zuperix is licensed under the GNU AGPL v3. We believe in data ownership and the power of the open-source community.
                   This ensures that the project stays open and collaborative forever, protecting it from becoming closed-source.
                 </p>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
