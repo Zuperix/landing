@@ -4,6 +4,7 @@ import { Features } from "@/components/features"
 import { HowItWorks } from "@/components/how-it-works"
 import { DeveloperFirst } from "@/components/developer-first"
 import { WebhooksSection } from "@/components/webhooks-section"
+import { McpSection } from "@/components/mcp-section"
 import { UseCases } from "@/components/use-cases"
 import { ScreenshotsSection } from "@/components/screenshots-section"
 import { Testimonials } from "@/components/testimonials"
@@ -22,6 +23,7 @@ export default function Page() {
         <ScreenshotsSection />
         <DeveloperFirst />
         <WebhooksSection />
+        <McpSection />
         <UseCases />
         <Testimonials />
         <Comparison />
