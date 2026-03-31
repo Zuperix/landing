@@ -131,18 +131,18 @@ export function Footer() {
             © {new Date().getFullYear()} Zuperix. Open source under the GNU AGPL v3.
           </p>
           <div className="flex items-center gap-6">
-            <a 
-              href="#" 
+            <Link 
+              href="/privacy" 
               className="text-xs text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus-visible:text-brand"
             >
               Privacy Policy
-            </a>
-            <a 
-              href="#" 
+            </Link>
+            <Link 
+              href="/terms" 
               className="text-xs text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus-visible:text-brand"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
