@@ -29,7 +29,7 @@ const PRICING_TIERS = [
     highlight: true,
     icon: Medal,
     iconColor: "text-yellow-400",
-    cta: "Start Free Trial",
+    cta: "Coming Soon",
   },
   {
     name: "Silver",
@@ -42,7 +42,6 @@ const PRICING_TIERS = [
       "Basic Integrations",
       "Facial Recognition",
       "Public API & Webhooks",
-      "Advanced Search Filters",
       "Email Support",
       "500GB Cloud Storage",
     ],
@@ -152,15 +151,19 @@ export default function PricingPage() {
                   </div>
 
                   <Button
+                    disabled={tier.cta === "Coming Soon"}
                     className={cn(
                       "w-full h-12 text-sm font-semibold rounded-xl transition-all active:scale-95 group",
                       tier.highlight
                         ? "bg-brand hover:bg-brand-dim text-white border-0"
-                        : "bg-secondary hover:bg-secondary/80 text-foreground border border-border"
+                        : "bg-secondary hover:bg-secondary/80 text-foreground border border-border",
+                      tier.cta === "Coming Soon" && "opacity-50 grayscale cursor-not-allowed"
                     )}
                   >
                     {tier.cta}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    {tier.cta !== "Coming Soon" && (
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    )}
                   </Button>
                 </SpotlightCard>
               </motion.div>

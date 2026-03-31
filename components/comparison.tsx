@@ -119,7 +119,7 @@ export function Comparison() {
             AI-native vs. just storage
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto text-pretty leading-relaxed">
-            Zuperix is built around intelligence. Others bolt it on — or don't bother.
+            Zuperix is built around intelligence. Others bolt it on, or don't bother.
           </p>
         </div>
 

@@ -26,7 +26,7 @@ export function ScreenshotsSection() {
             Designed for clarity
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto text-pretty leading-relaxed">
-            Every interaction optimized for speed. Find what you need — before you know you need it.
+            Every interaction optimized for speed. Find what you need before you know you need it.
           </p>
         </div>
 

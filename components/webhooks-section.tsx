@@ -197,7 +197,7 @@ export function WebhooksSection() {
           </h2>
           
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">
-            Receive real-time notifications directly to your server or Slack. Every time an asset is created, updated, deleted, or tagged — your pipeline stays in sync.
+            Receive real-time notifications directly to your server or Slack. Every time an asset is created, updated, deleted, or tagged, your pipeline stays in sync.
           </p>
           
           <a 

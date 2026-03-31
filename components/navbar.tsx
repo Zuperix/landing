@@ -15,6 +15,7 @@ const NAV_ITEMS = [
   { label: "Developers", href: "/#developers" },
   { label: "Use cases", href: "/#use-cases" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
 ]
 
 export function Navbar() {

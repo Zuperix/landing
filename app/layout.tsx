@@ -60,9 +60,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zuperix",
+    "url": "https://zuperix.com",
+    "logo": "https://zuperix.com/logo_transparant.png",
+    "sameAs": [
+      "https://github.com/zuperix/zuperix"
+    ]
+  }
+
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased text-foreground`}>
         {children}
         <Analytics />
       </body>

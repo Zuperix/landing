@@ -119,7 +119,7 @@ export function Features() {
             Everything your assets need
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty leading-relaxed">
-            From upload to insight — Zuperix handles the entire lifecycle with AI at every step. Discover features built for modern teams.
+            From upload to insight, Zuperix handles the entire lifecycle with AI at every step. Discover features built for modern teams.
           </p>
         </motion.div>
 

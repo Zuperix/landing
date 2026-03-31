@@ -125,7 +125,7 @@ export function DeveloperFirst() {
               Built for builders.
             </h2>
             <p className="text-muted-foreground leading-relaxed text-pretty mb-6 text-sm sm:text-base">
-              Zuperix is a fully open-source platform under the GNU AGPL v3. Extend it, fork it, self-host it — the project stays open for the community, forever.
+              Zuperix is a fully open-source platform under the GNU AGPL v3. Extend it, fork it, self-host it. The project stays open for the community, forever.
             </p>
 
             {/* Tech stack pills */}
