@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -12,55 +13,54 @@ import { cn } from "@/lib/utils"
 const PRICING_TIERS = [
   {
     name: "Gold",
-    price: "50",
-    description:
-      "Ideal for growing teams that need powerful features and reliable performance.",
+    monthlyPrice: "99",
+    yearlyPrice: "990",
+    description: "Ideal for growing teams that need powerful features and reliable performance.",
     features: [
       "Unlimited Users",
       "SSO Authentication",
       "Advanced Natural Language Search",
+      "Facial Recognition",
       "Advanced Integrations",
       "Business Hours Priority Support",
-      "Custom branding and whitelabeling",
-      "Detailed Analytics & Insights",
       "99.9% Uptime SLA",
-      "2TB Cloud Storage",
+      "1TB Cloud Storage",
     ],
-    highlight: true,
     icon: Medal,
     iconColor: "text-yellow-400",
     cta: "Coming Soon",
   },
   {
     name: "Silver",
-    price: "25",
-    description:
-      "Great for small teams looking to stay organized and move faster.",
+    monthlyPrice: "25",
+    yearlyPrice: "249",
+    description: "Great for small teams looking to stay organized and move faster.",
     features: [
       "Up to 25 Users",
       "Smart Natural Language Search",
+      "OCR Search",
       "Basic Integrations",
-      "Facial Recognition",
       "Public API & Webhooks",
       "Email Support",
       "500GB Cloud Storage",
     ],
+    highlight: true,
     icon: Medal,
     iconColor: "text-slate-300",
     cta: "Start Free Trial",
   },
   {
     name: "Bronze",
-    price: "10",
-    description:
-      "Simple and affordable plan for individuals and early-stage projects.",
+    monthlyPrice: "10",
+    yearlyPrice: "99",
+    description: "Simple and affordable plan for individuals and early-stage projects.",
     features: [
       "Up to 5 Users",
       "Basic Search Features",
       "Workflow Automation",
       "Public Sharing Portals",
       "Community Support",
-      "OCR & Text Extraction",
+      "Text Extraction",
       "50GB Cloud Storage",
     ],
     icon: Medal,
@@ -70,19 +70,21 @@ const PRICING_TIERS = [
 ]
 
 export default function PricingPage() {
+  const [billingCycle, setBillingCycle] = useState<"MONTHLY" | "YEARLY">("YEARLY")
+
   return (
     <>
       <Navbar />
       <main className="min-h-screen bg-background text-foreground pt-32 pb-24 px-6 overflow-x-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 px-4">
+          <div className="text-center mb-12 px-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold tracking-widest uppercase mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold tracking-widest uppercase mb-4 shadow-sm"
             >
-              Most Affordable AI DAM in Market
+              🔥 Limited-time yearly discount — 2 MONTHS FREE
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -90,84 +92,194 @@ export default function PricingPage() {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
             >
-              Simple, transparent pricing
+              Professional DAM, <span className="text-brand">Transparent</span> Pricing
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty"
+              className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty mb-10"
             >
-              Enterprise-grade DAM features at a fraction of the cost. Zuperix is the most affordable AI-powered digital asset management platform in the market today.
+              Enterprise-grade DAM features at a fraction of the cost. Zuperix is the most affordable AI-powered digital asset management platform.
             </motion.p>
+
+            {/* Billing Toggle */}
+            <div className="flex flex-col items-center gap-4 mb-16">
+              <div className="relative flex items-center bg-secondary/50 p-1.5 rounded-2xl border border-border/50 shadow-sm">
+                <button
+                  onClick={() => setBillingCycle("MONTHLY")}
+                  className={cn(
+                    "relative px-6 py-2 text-xs font-bold transition-all duration-300 rounded-xl",
+                    billingCycle === "MONTHLY" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Monthly
+                </button>
+                <button
+                  onClick={() => setBillingCycle("YEARLY")}
+                  className={cn(
+                    "relative px-6 py-2 text-xs font-bold transition-all duration-300 rounded-xl flex items-center gap-2",
+                    billingCycle === "YEARLY" ? "bg-brand text-white shadow-xl shadow-brand/20" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Yearly
+                  <span className={cn(
+                    "text-[9px] px-1.5 py-0.5 rounded-md",
+                    billingCycle === "YEARLY" ? "bg-white/20 text-white" : "bg-brand/10 text-brand"
+                  )}>
+                    -16% OFF
+                  </span>
+                </button>
+              </div>
+              <div className="flex items-center gap-6 text-[10px] uppercase font-black tracking-widest text-muted-foreground/60">
+                 <div className="flex items-center gap-1.5">
+                   <Check className="w-3 h-3 text-emerald-500" /> Cancel anytime
+                 </div>
+                 <div className="flex items-center gap-1.5">
+                   <Check className="w-3 h-3 text-emerald-500" /> No hidden fees
+                 </div>
+              </div>
+            </div>
           </div>
 
           {/* Pricing Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
             {PRICING_TIERS.map((tier, i) => (
               <motion.div
                 key={tier.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i }}
-                className="h-full"
+                className="h-full relative"
               >
+                {tier.name === "Silver" && billingCycle === "YEARLY" && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <div className="bg-brand text-white text-[10px] font-black uppercase tracking-[0.2em] py-1.5 px-4 rounded-full shadow-lg shadow-brand/30 border border-white/20">
+                      Best Value
+                    </div>
+                  </div>
+                )}
+                
                 <SpotlightCard className={cn(
-                  "h-full flex flex-col p-6 sm:p-8 transition-all duration-300",
-                  tier.highlight ? "border-brand/50 shadow-lg shadow-brand/5" : "border-border/50"
+                  "h-full flex flex-col p-6 sm:p-8 transition-all duration-300 border-border/50 overflow-hidden",
+                  tier.name === "Silver" ? "border-brand/40 shadow-2xl shadow-brand/5 ring-1 ring-brand/10" : "hover:border-border"
                 )}>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-8">
                     <div className={cn(
-                      "w-12 h-12 rounded-xl flex items-center justify-center transition-colors",
-                      tier.highlight ? "bg-white/10 text-white" : "bg-secondary text-foreground"
+                      "w-12 h-12 rounded-2xl flex items-center justify-center transition-colors shadow-inner",
+                      tier.name === "Silver" ? "bg-brand/10 text-brand" : "bg-secondary text-foreground"
                     )}>
                       <tier.icon className={cn("w-6 h-6", tier.iconColor)} />
                     </div>
-                    {tier.highlight && (
-                      <span className="text-[10px] font-bold text-brand tracking-widest uppercase bg-brand/10 px-2 py-1 rounded-full border border-brand/20">
-                        Enterprise
-                      </span>
+                    {billingCycle === "YEARLY" && (
+                      <div className="flex flex-col items-end gap-1">
+                        <span className={cn(
+                          "text-[10px] font-black text-emerald-400 tracking-tighter bg-emerald-500/10 px-2 py-0.5 rounded-lg border border-emerald-500/20 shadow-sm"
+                        )}>
+                          2 MONTHS FREE
+                        </span>
+                        <span className="text-[9px] font-bold text-muted-foreground uppercase opacity-70">
+                          Save ${tier.name === 'Gold' ? '198' : tier.name === 'Silver' ? '51' : '21'} yearly
+                        </span>
+                      </div>
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold mb-2">{tier.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-4xl font-bold">${tier.price}</span>
-                    <span className="text-muted-foreground text-sm">/mo</span>
+                  <h3 className="text-2xl font-bold mb-2 tracking-tight">{tier.name}</h3>
+                  <div className="flex items-baseline gap-1.5 mb-6">
+                    <span className="text-5xl font-black tracking-tighter">
+                      ${billingCycle === "MONTHLY" ? tier.monthlyPrice : Math.floor(Number(tier.yearlyPrice) / 12)}
+                    </span>
+                    <span className="text-muted-foreground text-xl font-bold">/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-8 line-clamp-2">
+
+                  {billingCycle === "YEARLY" && (
+                    <p className="text-[11px] text-muted-foreground font-bold mb-8 uppercase tracking-wider flex items-center gap-2">
+                       <span className="w-1 h-1 rounded-full bg-brand" />
+                       Billed yearly at ${tier.yearlyPrice}
+                    </p>
+                  )}
+
+                  <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
                     {tier.description}
                   </p>
 
-                  <div className="flex-1 mb-8">
+                  <div className="flex-1 mb-10">
                     <ul className="space-y-4">
                       {tier.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3 text-sm">
-                          <Check className="w-4 h-4 text-brand shrink-0 mt-0.5" />
-                          <span className="text-foreground/80">{feature}</span>
+                        <li key={feature} className="flex items-start gap-4 text-sm font-medium">
+                          <Check className={cn("w-5 h-5 shrink-0 mt-0.5 p-1 rounded-full bg-emerald-500/10 text-emerald-500")} />
+                          <span className="text-foreground/80 leading-snug">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   <Button
-                    disabled={tier.cta === "Coming Soon"}
+                    disabled={tier.cta === "Coming Soon" || tier.name === "Gold"}
                     className={cn(
-                      "w-full h-12 text-sm font-semibold rounded-xl transition-all active:scale-95 group",
-                      tier.highlight
-                        ? "bg-brand hover:bg-brand-dim text-white border-0"
+                      "w-full h-14 text-sm font-black rounded-2xl transition-all active:scale-95 group shadow-xl uppercase tracking-widest",
+                      tier.name === "Silver"
+                        ? "bg-brand hover:bg-brand-dim text-white border-0 shadow-brand/20"
                         : "bg-secondary hover:bg-secondary/80 text-foreground border border-border",
-                      tier.cta === "Coming Soon" && "opacity-50 grayscale cursor-not-allowed"
+                      (tier.cta === "Coming Soon" || tier.name === "Gold") && "opacity-50 grayscale cursor-not-allowed"
                     )}
                   >
-                    {tier.cta}
-                    {tier.cta !== "Coming Soon" && (
+                    {tier.name === "Gold" ? "Coming Soon" : tier.cta === "Start Free Trial" ? `Start ${tier.name} Trial` : tier.cta}
+                    {(tier.cta !== "Coming Soon" && tier.name !== "Gold") && (
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     )}
                   </Button>
                 </SpotlightCard>
               </motion.div>
             ))}
+          </div>
+
+          {/* Storage Bundles Section */}
+          <div className="max-w-4xl mx-auto mb-24 px-6">
+            <div className="text-center mb-10">
+               <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Need more space?</h2>
+               <p className="text-muted-foreground text-sm">Add high-performance cloud storage to any plan starting from silver</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+               <div className="p-6 rounded-3xl bg-secondary/10 border border-border/50 flex items-center justify-between group hover:border-brand/40 transition-all cursor-default">
+                  <div className="flex items-center gap-4">
+                     <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand">
+                        <Zap className="w-5 h-5" />
+                     </div>
+                     <div>
+                        <p className="text-lg font-bold text-white">100GB Bundle</p>
+                        <p className="text-xs text-muted-foreground">Standard Storage</p>
+                     </div>
+                  </div>
+                  <div className="text-right">
+                     <p className="text-2xl font-black text-white">$6</p>
+                     <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
+                  </div>
+               </div>
+
+               <div className="p-6 rounded-3xl bg-brand/5 border border-brand/20 flex items-center justify-between group hover:border-brand/60 transition-all relative overflow-hidden cursor-default">
+                  <div className="absolute top-0 right-0">
+                     <div className="bg-emerald-500 text-white text-[8px] font-black uppercase tracking-tighter py-1 px-4 rotate-45 translate-x-4 translate-y-1 shadow-sm">
+                        Discounted
+                     </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                     <div className="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center text-brand">
+                        <Zap className="w-5 h-5" />
+                     </div>
+                     <div>
+                        <p className="text-lg font-bold text-white">500GB Bundle</p>
+                        <p className="text-xs text-brand/70 font-semibold italic">Best Value Add-on</p>
+                     </div>
+                  </div>
+                  <div className="text-right">
+                     <p className="text-2xl font-black text-white">$25</p>
+                     <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
+                  </div>
+               </div>
+            </div>
           </div>
 
           {/* Custom Plan Section */}
