@@ -21,6 +21,7 @@ const PRICING_TIERS = [
       "SSO Authentication",
       "Advanced Natural Language Search",
       "Facial Recognition",
+      "1,500 min/mo AI Video Transcription",
       "Advanced Integrations",
       "Business Hours Priority Support",
       "99.9% Uptime SLA",
@@ -39,6 +40,7 @@ const PRICING_TIERS = [
       "Up to 25 Users",
       "Smart Natural Language Search",
       "OCR Search",
+      "150 min/mo AI Video Transcription",
       "Basic Integrations",
       "Public API & Webhooks",
       "Email Support",
@@ -235,6 +237,32 @@ export default function PricingPage() {
             ))}
           </div>
 
+          {/* Questions/Doubts Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-7xl mx-auto mb-24 px-4"
+          >
+            <div className="rounded-3xl bg-brand/5 border border-brand/20 p-8 sm:p-10 text-center relative overflow-hidden group hover:border-brand/40 transition-colors">
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none transition-transform group-hover:scale-110 duration-700">
+                <Globe className="w-32 h-32 text-brand" />
+              </div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-3 tracking-tight">Still have more doubts?</h3>
+                <p className="text-muted-foreground text-base mb-8 max-w-xl mx-auto text-pretty">
+                  Not sure which plan is right for you? Schedule a discovery call with our experts to discuss your custom needs and infrastructure requirements.
+                </p>
+                <Button className="bg-brand hover:bg-brand-dim text-white font-bold rounded-2xl px-10 h-14 shadow-xl shadow-brand/20 transition-all active:scale-95 group uppercase tracking-widest text-sm" asChild>
+                  <Link href="https://calendly.com/zuperix18/30min" target="_blank" rel="noopener noreferrer">
+                    Talk with an Expert
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Storage Bundles Section */}
           <div className="max-w-4xl mx-auto mb-24 px-6">
             <div className="text-center mb-10">
@@ -311,9 +339,11 @@ export default function PricingPage() {
                 </div>
 
                 <div className="shrink-0 flex flex-col items-center lg:items-end gap-5">
-                  <Button className="h-11 px-8 bg-brand hover:bg-brand-dim text-white font-bold rounded-xl active:scale-95 transition-all group">
-                    Coming Soon
-                    <TimerIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <Button className="h-11 px-8 bg-brand hover:bg-brand-dim text-white font-bold rounded-xl active:scale-95 transition-all group" asChild>
+                    <Link href="https://calendly.com/zuperix18/30min" target="_blank" rel="noopener noreferrer">
+                      Talk with an Expert
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -359,7 +389,7 @@ export default function PricingPage() {
           {/* Frequently Asked Questions */}
           <div className="mb-24">
             <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
               {[
                 {
                   q: "What is the GNU AGPL v3?",

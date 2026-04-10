@@ -146,7 +146,7 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
             </span>
-            Open Source (AGPL) · AI-Native
+            Modern · AI-Powered · Content-Centric
           </motion.div>
           
           <motion.div
@@ -170,9 +170,9 @@ export function Hero() {
           id="hero-heading"
           className="relative text-balance text-center font-bold tracking-tight leading-[1.08] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground max-w-4xl mb-6"
         >
-          Your Assets,{" "}
+          The Content Hub for{" "}
           <span className="bg-gradient-to-r from-brand to-[oklch(0.65_0.25_280)] bg-clip-text text-transparent">
-            Finally Organized.
+            Creative Teams.
           </span>
         </motion.h1>
 
@@ -180,7 +180,7 @@ export function Hero() {
           variants={itemVariants}
           className="relative text-center text-base sm:text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed text-pretty"
         >
-          The most affordable AI-powered DAM. Search, tag, and manage images, videos, and files using natural language. Built for developers, loved by teams.
+          Modern, AI-powered digital asset management for teams that move fast. Organize, discover, and share your creative library using natural language.
         </motion.p>
 
         {/* Animated search bar */}

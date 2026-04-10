@@ -43,10 +43,10 @@ const features: Feature[] = [
       "Upload any image to find visually similar assets in your library. Perfect for finding variants and related content.",
   },
   {
-    image: "/images/feature-smart-tagging.jpg",
-    title: "Smart Tagging",
+    image: "/images/feature-transcription.png",
+    title: "AI Video Transcription",
     description:
-      "AI automatically generates relevant tags the moment assets land. Bulk edit and refine with a single click.",
+      "Automatically convert video and audio into searchable text. Generate captions and export transcripts in multiple formats with AI precision.",
   },
   {
     image: "/images/feature-ocr.jpg",
@@ -60,7 +60,7 @@ const features: Feature[] = [
     description:
       "Engage with your team through precision annotations and real-time commentary directly on your assets.",
   },
-]
+];
 
 function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   return (

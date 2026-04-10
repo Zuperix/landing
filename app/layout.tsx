@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: 'https://zuperix.com',
     siteName: 'Zuperix',
     title: 'Zuperix – AI-Powered Digital Asset Management',
-    description: 'Search, tag, and manage images, videos, and files using AI-powered natural language. Open-source, self-hostable, developer-first.',
+    description: 'Search, tag, and manage images, videos, and files using AI-powered natural language. Built for creative teams and content managers.',
     images: [
       {
         url: '/og-image.jpg',

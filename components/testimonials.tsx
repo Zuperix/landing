@@ -22,9 +22,9 @@ const testimonials: Testimonial[] = [
     avatar: "SC",
   },
   {
-    quote: "Finally, a DAM that speaks our language. We self-host it on our infrastructure and the API-first approach integrates perfectly with our CI/CD.",
+    quote: "Finally, a content hub that speaks our language. The intuitive UI and lightning-fast search have completely transformed how we handle our brand assets.",
     author: "Marcus Johnson",
-    role: "Staff Engineer",
+    role: "Brand Design Lead",
     company: "TechFlow",
     avatar: "MJ",
   },
@@ -104,7 +104,7 @@ export function Testimonials() {
             Loved by teams worldwide
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto text-pretty leading-relaxed">
-            See what developers and teams are saying about Zuperix.
+            See how creative teams and brand managers are using Zuperix to stay organized.
           </p>
         </motion.div>
 

@@ -23,12 +23,12 @@ const footerLinks: FooterLinkGroup[] = [
     ],
   },
   {
-    heading: "Developers",
+    heading: "Resources",
     links: [
       { label: "Documentation", href: "#" },
-      { label: "API Reference", href: "#" },
+      { label: "Community", href: "#" },
       { label: "GitHub", href: "https://github.com/zuperix/zuperix" },
-      { label: "SDK", href: "#" },
+      { label: "Roadmap", href: "#" },
     ],
   },
   {
@@ -81,7 +81,7 @@ export function Footer() {
               <span className="font-semibold text-foreground tracking-tight text-lg">Zuperix</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
-              AI-powered digital asset management. Open source, self-hostable, and built for teams that move fast.
+              AI-powered digital asset management for creative teams. Organize, discover, and share your media library with ease.
             </p>
             
             {/* Social links */}

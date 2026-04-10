@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Features } from "@/components/features"
 import { HowItWorks } from "@/components/how-it-works"
-import { DeveloperFirst } from "@/components/developer-first"
+import { CreativeWorkflows } from "@/components/creative-workflows"
 import { WebhooksSection } from "@/components/webhooks-section"
 import { McpSection } from "@/components/mcp-section"
 import { UseCases } from "@/components/use-cases"
@@ -21,7 +21,7 @@ export default function Page() {
         <Features />
         <HowItWorks />
         <ScreenshotsSection />
-        <DeveloperFirst />
+        <CreativeWorkflows />
         <WebhooksSection />
         <McpSection />
         <UseCases />
