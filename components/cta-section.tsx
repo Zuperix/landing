@@ -50,15 +50,6 @@ export function CtaSection() {
         className="relative max-w-3xl mx-auto text-center"
       >
         {/* Badge */}
-        <motion.div 
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, type: "spring" }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs font-medium tracking-wide mb-8"
-        >
-          Free forever for personal use
-        </motion.div>
         
         <h2 
           id="cta-heading"
