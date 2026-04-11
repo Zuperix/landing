@@ -72,7 +72,7 @@ export function CtaSection() {
               className="w-full sm:w-auto bg-brand hover:bg-brand-dim text-primary-foreground font-semibold rounded-lg px-8 h-13 text-base shadow-lg shadow-brand/20 hover:shadow-xl hover:shadow-brand/30 transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
               asChild
             >
-              <Link href="/pricing">
+              <Link href="http://dashboard.zuperix.com/">
                 Deploy Zuperix
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>

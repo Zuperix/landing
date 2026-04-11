@@ -179,7 +179,7 @@ export function Navbar() {
                 className="bg-brand hover:bg-brand-dim text-white border-0 gap-1.5 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 px-5 h-10 active:scale-95 transition-all"
                 asChild
               >
-                <Link href="/pricing">
+                <Link href="http://dashboard.zuperix.com/">
                   Get Started
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -246,7 +246,7 @@ export function Navbar() {
                     className="w-full bg-brand hover:bg-brand-dim text-white h-12 text-base px-6 gap-2"
                     asChild
                   >
-                    <Link href="/pricing">
+                    <Link href="http://dashboard.zuperix.com/">
                       Get Started
                       <ArrowRight className="w-4 h-4" />
                     </Link>

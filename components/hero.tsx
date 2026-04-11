@@ -102,7 +102,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="main-content"
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-20"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden px-6 pt-40 pb-20"
       aria-labelledby="hero-heading"
     >
       {/* Subtle grid background with mouse parallax */}
@@ -136,43 +136,16 @@ export function Hero() {
         style={{ opacity: heroOpacity, scale: heroScale }}
         className="relative z-10 flex flex-col items-center"
       >
-        {/* Badge */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 mb-8">
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-brand/30 bg-brand/10 text-brand text-xs font-medium tracking-wide"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
-            </span>
-            Modern · AI-Powered · Content-Centric
-          </motion.div>
-          
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link
-              href="/pricing"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 text-muted-foreground text-xs font-medium tracking-wide hover:border-brand/30 hover:text-foreground transition-all cursor-pointer group/cloud"
-            >
-              Cloud version available for zero-hassle setup
-              <ArrowRight className="w-3 h-3 group-hover/cloud:translate-x-0.5 transition-transform" aria-hidden="true" />
-            </Link>
-          </motion.div>
-        </div>
 
         {/* Heading */}
         <motion.h1
           variants={itemVariants}
           id="hero-heading"
-          className="relative text-balance text-center font-bold tracking-tight leading-[1.08] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground max-w-4xl mb-6"
+          className="relative text-balance text-center font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground max-w-4xl mb-6"
         >
-          The Content Hub for{" "}
+          Enterprise-Grade Digital Asset Management at{" "}
           <span className="bg-gradient-to-r from-brand to-[oklch(0.65_0.25_280)] bg-clip-text text-transparent">
-            Creative Teams.
+            Startup Pricing.
           </span>
         </motion.h1>
 
@@ -180,7 +153,7 @@ export function Hero() {
           variants={itemVariants}
           className="relative text-center text-base sm:text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed text-pretty"
         >
-          Modern, AI-powered digital asset management for teams that move fast. Organize, discover, and share your creative library using natural language.
+          Find any asset in seconds. No more folders, duplicates, or lost files. AI-powered search, and lightning-fast access for modern teams.
         </motion.p>
 
         {/* Animated search bar */}
@@ -216,7 +189,7 @@ export function Hero() {
               className="w-full sm:w-auto bg-brand hover:bg-brand-dim text-primary-foreground border-0 gap-2 px-8 h-12 text-base shadow-lg shadow-brand/20 hover:shadow-xl hover:shadow-brand/30 transition-all active:scale-95"
               asChild
             >
-              <Link href="/pricing">
+              <Link href="http://dashboard.zuperix.com/">
                 Get Started Free
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
@@ -273,7 +246,7 @@ export function Hero() {
                 <svg className="w-3 h-3 text-green-500 shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                   <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm2.5 11l-3.5-2.5v-5h1v4.3l3 2.2-.5.9z" />
                 </svg>
-                zuperix.com/dashboard
+                zuperix.com
               </div>
             </div>
             <div className="w-16" aria-hidden="true" />

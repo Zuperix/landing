@@ -20,7 +20,7 @@ export default function Page() {
         <Hero />
         <Features />
         <HowItWorks />
-        <ScreenshotsSection />
+        {/* <ScreenshotsSection /> */}
         <CreativeWorkflows />
         <WebhooksSection />
         <McpSection />
