@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/logo_transparant.png', type: 'image/svg+xml' },
-      { url: '/icon-light-32x32.png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
+      { url: '/logo_transparant.png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
+      { url: '/logo_transparant.png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
     ],
-    apple: '/apple-icon.png',
+    apple: '/logo_transparant.png',
   },
   openGraph: {
     type: 'website',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Search, tag, and manage images, videos, and files using AI-powered natural language. Built for creative teams and content managers.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og_image_zup.png',
         width: 1200,
         height: 630,
         alt: 'Zuperix - AI-Powered Digital Asset Management',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zuperix – AI-Powered Digital Asset Management',
     description: 'Search, tag, and manage images, videos, and files using AI-powered natural language.',
-    images: ['/og-image.jpg'],
+    images: ['/og_image_zup.png'],
   },
   robots: {
     index: true,

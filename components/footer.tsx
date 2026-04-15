@@ -25,7 +25,7 @@ const footerLinks: FooterLinkGroup[] = [
   {
     heading: "Resources",
     links: [
-      { label: "Documentation", href: "#" },
+      { label: "Documentation", href: "https://docs.zuperix.com/" },
       { label: "Community", href: "#" },
       { label: "GitHub", href: "https://github.com/zuperix/zuperix" },
       { label: "Roadmap", href: "#" },
@@ -52,7 +52,7 @@ export function Footer() {
   const { ref, isInView } = useAnimateInView<HTMLElement>()
 
   return (
-    <footer 
+    <footer
       ref={ref}
       className={cn(
         "border-t border-border bg-card px-6 py-16 sm:py-20 transition-all duration-700",
@@ -64,16 +64,16 @@ export function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-2">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex items-center gap-2.5 mb-5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-card rounded-lg"
               aria-label="Zuperix Home"
             >
               <div className="w-9 h-9 relative transition-transform group-hover:scale-105">
-                <Image 
-                  src="/logo_transparant.png" 
-                  alt="Zuperix Logo" 
-                  fill 
+                <Image
+                  src="/logo_transparant.png"
+                  alt="Zuperix Logo"
+                  fill
                   className="object-contain"
                   priority
                 />
@@ -83,7 +83,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
               AI-powered digital asset management for creative teams. Organize, discover, and share your media library with ease.
             </p>
-            
+
             {/* Social links */}
             <div className="flex items-center gap-2">
               {socialLinks.map((social) => {
@@ -131,20 +131,20 @@ export function Footer() {
 
         {/* All services are online badge - Image 2 */}
         <div className="flex justify-center mb-12">
-          <Link 
+          <Link
             href="https://status.zuperix.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-accent/30 hover:bg-accent/50 transition-all group"
           >
             <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
-              <svg 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="3" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="w-3 h-3 text-emerald-500"
               >
                 <polyline points="20 6 9 17 4 12" />
@@ -161,14 +161,14 @@ export function Footer() {
             © {new Date().getFullYear()} Zuperix. Open source under the GNU AGPL v3.
           </p>
           <div className="flex items-center gap-6">
-            <Link 
-              href="/privacy" 
+            <Link
+              href="/privacy"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus-visible:text-brand"
             >
               Privacy Policy
             </Link>
-            <Link 
-              href="/terms" 
+            <Link
+              href="/terms"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus-visible:text-brand"
             >
               Terms of Service
