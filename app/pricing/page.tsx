@@ -38,7 +38,6 @@ const PRICING_TIERS = [
     description: "Great for small teams looking to stay organized and move faster.",
     features: [
       "Up to 25 Users",
-      "Smart Natural Language Search",
       "OCR Search",
       "150 min/mo AI Video Transcription",
       "Basic Integrations",

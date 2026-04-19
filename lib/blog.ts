@@ -32,7 +32,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Cloudinary has carved a niche as the go-to media API for developers. Its transformation capabilities are unmatched—resize, crop, and optimize images on the fly via URL parameters. But here's the catch: Cloudinary is fundamentally an API and CDN, not a true DAM. There's no native brand portal, limited approval workflows, and the interface is built for engineers, not creative teams. Pricing is usage-based, which can spiral quickly once you hit production scale.</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Where Zuperix Stands Out</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix was built with a different philosophy: enterprise-grade features shouldn't require enterprise budgets. Starting at just $10/month for our Bronze plan, teams get OCR, workflow automation, and public sharing portals. Our Silver plan at $25/month unlocks natural language search and facial recognition—features that competitors charge hundreds for.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix was built with a different philosophy: enterprise-grade features shouldn't require enterprise budgets. Starting at just $10/month for our Bronze plan, teams get OCR, workflow automation, and public sharing portals. Our Gold plan unlocks natural language search and facial recognition—features that competitors charge hundreds for.</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
         <div class="p-6 bg-secondary rounded-2xl border border-border text-center">
@@ -50,7 +50,7 @@ export const BLOG_POSTS: BlogPost[] = [
       </div>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Feature-by-Feature Breakdown</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">AI-powered search? Zuperix has it on Silver and above. Brand portals? Available on all plans. Self-hosting option? Only Zuperix offers true data sovereignty with zero vendor lock-in. While Bynder and Cloudinary excel in their niches, neither offers the combination of affordability, AI intelligence, and flexibility that Zuperix delivers.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">AI-powered search? Zuperix has it on Gold. Brand portals? Available on all plans. Self-hosting option? Only Zuperix offers true data sovereignty with zero vendor lock-in. While Bynder and Cloudinary excel in their niches, neither offers the combination of affordability, AI intelligence, and flexibility that Zuperix delivers.</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">The Verdict</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">If you're a Fortune 500 company with unlimited budget, Bynder is a safe choice. If you need programmatic image transformations at scale, Cloudinary is purpose-built. But if you're a growing team that needs real DAM capabilities—AI search, brand management, secure sharing—without the enterprise price tag, Zuperix is the clear winner.</p>
@@ -162,7 +162,7 @@ export const BLOG_POSTS: BlogPost[] = [
       </div>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Intelligent Features at Every Tier</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">From automatic OCR and visual asset discovery on our Bronze plan to powerful natural language search on Silver and above, Zuperix ensures meaningful AI capabilities are accessible across every tier. We believe in delivering real value at every price point—because smarter asset management shouldn't require an enterprise budget.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">From automatic OCR and visual asset discovery on our Bronze plan to powerful natural language search on Gold, Zuperix ensures meaningful AI capabilities are accessible across our plans. We believe in delivering real value at every price point—because smarter asset management shouldn't require an enterprise budget.</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Growth Without Friction</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix scales as you do. Whether you are managing ten assets or ten thousand, our pricing stays predictable. No surprise fees for storage spikes or extra users. It's time to move beyond storage and start truly managing your digital future with the industry's most value-driven AI DAM.</p>
