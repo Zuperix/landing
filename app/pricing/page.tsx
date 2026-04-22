@@ -18,7 +18,6 @@ const PRICING_TIERS = [
     description: "Ideal for growing teams that need powerful features and reliable performance.",
     features: [
       "Unlimited Users",
-      "SSO Authentication",
       "Advanced Natural Language Search",
       "Facial Recognition",
       "1,500 min/mo AI Video Transcription",
@@ -38,7 +37,7 @@ const PRICING_TIERS = [
     description: "Great for small teams looking to stay organized and move faster.",
     features: [
       "Up to 25 Users",
-      "OCR Search",
+      "OCR and Text Extraction",
       "150 min/mo AI Video Transcription",
       "Basic Integrations",
       "Public API & Webhooks",
@@ -57,11 +56,10 @@ const PRICING_TIERS = [
     description: "Simple and affordable plan for individuals and early-stage projects.",
     features: [
       "Up to 5 Users",
-      "Basic Search Features",
+      "Essential Search & Filtering",
       "Workflow Automation",
       "Public Sharing Portals",
       "Community Support",
-      "Text Extraction",
       "50GB Cloud Storage",
     ],
     icon: Medal,

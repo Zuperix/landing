@@ -55,10 +55,10 @@ const features: Feature[] = [
       "Extract and index text from images, PDFs, and screenshots. Make every pixel in your library searchable.",
   },
   {
-    image: "/images/comment.png",
-    title: "Collaborative Annotations",
+    image: "/images/metadata.png",
+    title: "Advanced Metadata",
     description:
-      "Engage with your team through precision annotations and real-time commentary directly on your assets.",
+      "Enrich your assets with custom metadata fields, tags, and categories to keep your library organized and searchable.",
   },
 ];
 
