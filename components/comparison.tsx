@@ -19,12 +19,14 @@ const comparisons: ComparisonRow[] = [
   { feature: "AI auto-tagging", zuperix: true, googleDrive: false, dropbox: false },
   { feature: "OCR & text extraction", zuperix: true, googleDrive: false, dropbox: false },
   { feature: "Face recognition", zuperix: true, googleDrive: false, dropbox: false },
+  { feature: "Asset version control", zuperix: true, googleDrive: "partial", dropbox: true },
+  { feature: "MCP server access", zuperix: true, googleDrive: false, dropbox: false },
   { feature: "Advanced search syntax", zuperix: true, googleDrive: false, dropbox: false },
   { feature: "Self-hostable", zuperix: true, googleDrive: false, dropbox: false },
   { feature: "API-first architecture", zuperix: true, googleDrive: "partial", dropbox: "partial" },
   { feature: "Activity logging", zuperix: true, googleDrive: true, dropbox: true },
   { feature: "File storage", zuperix: true, googleDrive: true, dropbox: true },
-]
+];
 
 function Cell({ value, isZuperix = false }: { value: CellValue; isZuperix?: boolean }) {
   if (value === true)
