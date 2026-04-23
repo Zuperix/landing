@@ -18,6 +18,7 @@ const PRICING_TIERS = [
     description: "Ideal for growing teams that need powerful features and reliable performance.",
     features: [
       "Advanced Natural Language Search",
+      "Facial Recognition",
       "1,500 min/mo AI Video Transcription",
       "Advanced Integrations",
       "Business Hours Priority Support",
@@ -35,7 +36,6 @@ const PRICING_TIERS = [
     description: "Great for small teams looking to stay organized and move faster.",
     features: [
       "OCR and Text Extraction",
-      "Facial Recognition",
       "150 min/mo AI Video Transcription",
       "Basic Integrations",
       "Public API & Webhooks",
