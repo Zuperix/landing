@@ -17,9 +17,7 @@ const PRICING_TIERS = [
     yearlyPrice: "990",
     description: "Ideal for growing teams that need powerful features and reliable performance.",
     features: [
-      "Unlimited Users",
       "Advanced Natural Language Search",
-      "Facial Recognition",
       "1,500 min/mo AI Video Transcription",
       "Advanced Integrations",
       "Business Hours Priority Support",
@@ -36,8 +34,8 @@ const PRICING_TIERS = [
     yearlyPrice: "249",
     description: "Great for small teams looking to stay organized and move faster.",
     features: [
-      "Up to 25 Users",
       "OCR and Text Extraction",
+      "Facial Recognition",
       "150 min/mo AI Video Transcription",
       "Basic Integrations",
       "Public API & Webhooks",
@@ -55,7 +53,7 @@ const PRICING_TIERS = [
     yearlyPrice: "99",
     description: "Simple and affordable plan for individuals and early-stage projects.",
     features: [
-      "Up to 5 Users",
+      "Unlimited Users",
       "Essential Search & Filtering",
       "Workflow Automation",
       "Public Sharing Portals",
@@ -131,12 +129,12 @@ export default function PricingPage() {
                 </button>
               </div>
               <div className="flex items-center gap-6 text-[10px] uppercase font-black tracking-widest text-muted-foreground/60">
-                 <div className="flex items-center gap-1.5">
-                   <Check className="w-3 h-3 text-emerald-500" /> Cancel anytime
-                 </div>
-                 <div className="flex items-center gap-1.5">
-                   <Check className="w-3 h-3 text-emerald-500" /> No hidden fees
-                 </div>
+                <div className="flex items-center gap-1.5">
+                  <Check className="w-3 h-3 text-emerald-500" /> Cancel anytime
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Check className="w-3 h-3 text-emerald-500" /> No hidden fees
+                </div>
               </div>
             </div>
           </div>
@@ -158,7 +156,7 @@ export default function PricingPage() {
                     </div>
                   </div>
                 )}
-                
+
                 <SpotlightCard className={cn(
                   "h-full flex flex-col p-6 sm:p-8 transition-all duration-300 border-border/50 overflow-hidden",
                   tier.name === "Silver" ? "border-brand/40 shadow-2xl shadow-brand/5 ring-1 ring-brand/10" : "hover:border-border"
@@ -194,8 +192,8 @@ export default function PricingPage() {
 
                   {billingCycle === "YEARLY" && (
                     <p className="text-[11px] text-muted-foreground font-bold mb-8 uppercase tracking-wider flex items-center gap-2">
-                       <span className="w-1 h-1 rounded-full bg-brand" />
-                       Billed yearly at ${tier.yearlyPrice}
+                      <span className="w-1 h-1 rounded-full bg-brand" />
+                      Billed yearly at ${tier.yearlyPrice}
                     </p>
                   )}
 
@@ -263,47 +261,47 @@ export default function PricingPage() {
           {/* Storage Bundles Section */}
           <div className="max-w-4xl mx-auto mb-24 px-6">
             <div className="text-center mb-10">
-               <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Need more space?</h2>
-               <p className="text-muted-foreground text-sm">Add high-performance cloud storage to any plan starting from silver</p>
+              <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Need more space?</h2>
+              <p className="text-muted-foreground text-sm">Add high-performance cloud storage to any plan starting from silver</p>
             </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-               <div className="p-6 rounded-3xl bg-secondary/10 border border-border/50 flex items-center justify-between group hover:border-brand/40 transition-all cursor-default">
-                  <div className="flex items-center gap-4">
-                     <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand">
-                        <Zap className="w-5 h-5" />
-                     </div>
-                     <div>
-                        <p className="text-lg font-bold text-white">100GB Bundle</p>
-                        <p className="text-xs text-muted-foreground">Standard Storage</p>
-                     </div>
-                  </div>
-                  <div className="text-right">
-                     <p className="text-2xl font-black text-white">$6</p>
-                     <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
-                  </div>
-               </div>
 
-               <div className="p-6 rounded-3xl bg-brand/5 border border-brand/20 flex items-center justify-between group hover:border-brand/60 transition-all relative overflow-hidden cursor-default">
-                  <div className="absolute top-0 right-0">
-                     <div className="bg-emerald-500 text-white text-[8px] font-black uppercase tracking-tighter py-1 px-4 rotate-45 translate-x-4 translate-y-1 shadow-sm">
-                        Discounted
-                     </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="p-6 rounded-3xl bg-secondary/10 border border-border/50 flex items-center justify-between group hover:border-brand/40 transition-all cursor-default">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand">
+                    <Zap className="w-5 h-5" />
                   </div>
-                  <div className="flex items-center gap-4">
-                     <div className="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center text-brand">
-                        <Zap className="w-5 h-5" />
-                     </div>
-                     <div>
-                        <p className="text-lg font-bold text-white">500GB Bundle</p>
-                        <p className="text-xs text-brand/70 font-semibold italic">Best Value Add-on</p>
-                     </div>
+                  <div>
+                    <p className="text-lg font-bold text-white">100GB Bundle</p>
+                    <p className="text-xs text-muted-foreground">Standard Storage</p>
                   </div>
-                  <div className="text-right">
-                     <p className="text-2xl font-black text-white">$25</p>
-                     <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-black text-white">$6</p>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-brand/5 border border-brand/20 flex items-center justify-between group hover:border-brand/60 transition-all relative overflow-hidden cursor-default">
+                <div className="absolute top-0 right-0">
+                  <div className="bg-emerald-500 text-white text-[8px] font-black uppercase tracking-tighter py-1 px-4 rotate-45 translate-x-4 translate-y-1 shadow-sm">
+                    Discounted
                   </div>
-               </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center text-brand">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-white">500GB Bundle</p>
+                    <p className="text-xs text-brand/70 font-semibold italic">Best Value Add-on</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-black text-white">$25</p>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
+                </div>
+              </div>
             </div>
           </div>
 
