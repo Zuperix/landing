@@ -9,6 +9,7 @@ import { UseCases } from "@/components/use-cases"
 import { ScreenshotsSection } from "@/components/screenshots-section"
 import { Testimonials } from "@/components/testimonials"
 import { Comparison } from "@/components/comparison"
+import { Faq } from "@/components/faq"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
@@ -27,6 +28,7 @@ export default function Page() {
         <UseCases />
         <Testimonials />
         <Comparison />
+        <Faq />
         <CtaSection />
       </main>
       <Footer />

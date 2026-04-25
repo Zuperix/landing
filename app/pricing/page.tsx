@@ -7,8 +7,36 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Check, X, ArrowRight, Zap, Shield, Globe, Cpu, Medal, TimerIcon } from "lucide-react"
 import { motion } from "framer-motion"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { cn } from "@/lib/utils"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
+import { Faq } from "@/components/faq"
+
+const PRICING_FAQS = [
+  {
+    question: "What is the GNU AGPL v3?",
+    answer: "The GNU Affero General Public License (AGPL) is a strong copyleft license. It ensures Zuperix is fully open source and any modifications made to the software for network use must be shared back with the community."
+  },
+  {
+    question: "Can I use Zuperix for free?",
+    answer: "Yes! Zuperix is free to download, modify, and self-host under the AGPLv3. Our Cloud plans are for those who want a managed, optimized experience without the ops overhead."
+  },
+  {
+    question: "Do you offer a discount for non-profits?",
+    answer: "Absolutely. We offer 50% off all our cloud plans for verified non-profit organizations and educational institutions."
+  },
+  {
+    question: "What happens after the 14-day trial?",
+    answer: "You'll have the choice to subscribe to a plan to continue using the cloud version. If you choose not to, your data will be available for export for 30 days."
+  },
+  {
+    question: "What exactly is a Digital Asset Management (DAM) system?",
+    answer: "A DAM is a centralized hub for storing, organizing, finding, and sharing your organization's digital content. Unlike generic cloud storage, Zuperix provides advanced metadata, AI-powered discovery, and professional distribution tools designed specifically for creative and marketing assets."
+  },
+  {
+    question: "Is our data secure in Zuperix?",
+    answer: "Absolutely. We implement enterprise-grade security protocols, including AES-256-GCM encryption for sensitive data, secure OAuth authentication, and granular role-based access controls. Your assets are stored in secure, encrypted environments."
+  }
+]
 
 const PRICING_TIERS = [
   {
@@ -19,12 +47,9 @@ const PRICING_TIERS = [
     features: [
       "Advanced Natural Language Search",
       "Facial Recognition",
-      "1,500 min/mo AI Video Transcription",
-      "Advanced Integrations",
-      "Business Hours Priority Support",
-      "99.9% Uptime SLA",
+      "10M API calls/mo",
+      "Zapier Integration",
       "1TB Cloud Storage",
-      "Unlimited Users",
     ],
     icon: Medal,
     iconColor: "text-yellow-400",
@@ -37,12 +62,10 @@ const PRICING_TIERS = [
     description: "Great for small teams looking to stay organized and move faster.",
     features: [
       "OCR and Text Extraction",
-      "150 min/mo AI Video Transcription",
-      "Basic Integrations",
+      "1M API calls/mo",
+      "MCP Support",
       "Public API & Webhooks",
-      "Email Support",
       "500GB Cloud Storage",
-      "Unlimited Users",
     ],
     highlight: true,
     icon: Medal,
@@ -59,7 +82,6 @@ const PRICING_TIERS = [
       "Essential Search & Filtering",
       "Workflow Automation",
       "Public Sharing Portals",
-      "Community Support",
       "50GB Cloud Storage",
     ],
     icon: Medal,
@@ -234,6 +256,195 @@ export default function PricingPage() {
             ))}
           </div>
 
+          {/* Detailed Feature Comparison Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-32 overflow-x-auto"
+          >
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-4 tracking-tight">Compare all features</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">Compare every detail of our plans and find the one that fits your workflow perfectly.</p>
+            </div>
+
+            <table className="w-full text-left border-collapse min-w-[800px]">
+              <thead>
+                <tr className="border-b border-border/50">
+                  <th className="py-6 px-4 text-sm font-semibold text-muted-foreground uppercase tracking-wider">Feature</th>
+                  <th className="py-6 px-4 text-center">
+                    <span className="text-lg font-bold">Gold</span>
+                  </th>
+                  <th className="py-6 px-4 text-center bg-brand/5 border-x border-brand/20 rounded-t-3xl">
+                    <span className="text-lg font-bold text-brand">Silver</span>
+                  </th>
+                  <th className="py-6 px-4 text-center">
+                    <span className="text-lg font-bold">Bronze</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/30">
+                {/* Asset Management Group */}
+                <tr className="bg-secondary/20">
+                  <td colSpan={4} className="py-4 px-4 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground/60">Asset Management</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Unlimited Users</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Folders & Vaults</td>
+                  <td className="py-5 px-4 text-center text-sm font-semibold">Unlimited</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-semibold">Unlimited</td>
+                  <td className="py-5 px-4 text-center text-sm font-semibold">Unlimited</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Branded Sharing Portals</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Asset Versioning</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Advanced Permissions</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Role-Based Access (RBAC)</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Custom Metadata Schemas</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Bulk Metadata Import</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Deleted Asset Retention</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight text-foreground/80">30 days</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight text-brand">30 days</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight text-foreground/80">7 days</td>
+                </tr>
+
+                {/* AI & Search Group */}
+                <tr className="bg-secondary/20">
+                  <td colSpan={4} className="py-4 px-4 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground/60">AI & Search</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Search & Discovery</td>
+                  <td className="py-5 px-4 text-center text-xs font-bold uppercase">Full Neural</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-xs font-bold uppercase">Advanced</td>
+                  <td className="py-5 px-4 text-center text-xs font-bold uppercase">Essential</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">OCR & Text Extraction</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Video Transcription</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold">1,500 min/mo</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold">150 min/mo</td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Facial Recognition</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Visual Similarity Search</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+
+                {/* Integrations Group */}
+                <tr className="bg-secondary/20">
+                  <td colSpan={4} className="py-4 px-4 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground/60">Integrations</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Google Drive Integration</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Public API & Webhooks</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">API Request Limit</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">10M / mo</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight text-brand">1M / mo</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight text-rose-500/80">0 / mo</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">MCP Support</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Zapier Integration</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+
+                {/* Infrastructure Group */}
+                <tr className="bg-secondary/20">
+                  <td colSpan={4} className="py-4 px-4 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground/60">Infrastructure</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Included Storage</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">1 TB</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight">500 GB</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">50 GB</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Duplicate Manager</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Workflow Automation</td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
+                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Uptime Guarantee</td>
+                  <td className="py-5 px-4 text-center text-xs font-bold uppercase text-emerald-400">99.9% SLA</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-xs font-bold uppercase">BASIC</td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </motion.div>
+
           {/* Questions/Doubts Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -384,34 +595,7 @@ export default function PricingPage() {
           </div>
 
           {/* Frequently Asked Questions */}
-          <div className="mb-24">
-            <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-              {[
-                {
-                  q: "What is the GNU AGPL v3?",
-                  a: "The GNU Affero General Public License (AGPL) is a strong copyleft license. It ensures Zuperix is fully open source and any modifications made to the software for network use must be shared back with the community."
-                },
-                {
-                  q: "Can I use Zuperix for free?",
-                  a: "Yes! Zuperix is free to download, modify, and self-host under the AGPLv3. Our Cloud plans are for those who want a managed, optimized experience without the ops overhead."
-                },
-                {
-                  q: "Do you offer a discount for non-profits?",
-                  a: "Absolutely. We offer 50% off all our cloud plans for verified non-profit organizations and educational institutions."
-                },
-                {
-                  q: "What happens after the 14-day trial?",
-                  a: "You'll have the choice to subscribe to a plan to continue using the cloud version. If you choose not to, your data will be available for export for 30 days."
-                }
-              ].map((faq) => (
-                <div key={faq.q} className="p-6 rounded-2xl bg-secondary/20 border border-border/50">
-                  <h3 className="font-semibold text-foreground mb-3">{faq.q}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Faq items={PRICING_FAQS} />
 
           {/* Cloud vs Open Source Banner */}
           <motion.div
