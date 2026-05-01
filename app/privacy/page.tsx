@@ -71,7 +71,7 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">6. Contact Us</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  If you have questions or comments about this policy, you may email us at privacy@zuperix.com.
+                  If you have questions or comments about this policy, you may email us at support@zuperix.com.
                 </p>
               </section>
             </div>
