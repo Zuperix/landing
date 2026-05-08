@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/how-it-works"
 import { CreativeWorkflows } from "@/components/creative-workflows"
 import { WebhooksSection } from "@/components/webhooks-section"
 import { McpSection } from "@/components/mcp-section"
+import { IntegrationsSection } from "@/components/integrations-section"
 import { UseCases } from "@/components/use-cases"
 import { ScreenshotsSection } from "@/components/screenshots-section"
 import { Testimonials } from "@/components/testimonials"
@@ -22,9 +23,10 @@ export default function Page() {
         <Features />
         <HowItWorks />
         {/* <ScreenshotsSection /> */}
-        <CreativeWorkflows />
+        {/* <CreativeWorkflows /> */}
         <WebhooksSection />
         <McpSection />
+        <IntegrationsSection />
         <UseCases />
         <Testimonials />
         <Comparison />

@@ -30,8 +30,8 @@ const useCases: UseCase[] = [
     title: "Your entire library at your fingertips",
     description:
       "Search thousands of clips, images, and files the same way you'd describe them to a colleague.",
-    stat: "50k+",
-    statLabel: "creators using Zuperix",
+    stat: "Unlimited",
+    statLabel: "files & library size",
   },
   {
     icon: Building2,
