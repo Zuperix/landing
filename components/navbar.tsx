@@ -12,7 +12,7 @@ import { Magnetic } from "@/components/ui/magnetic-wrapper"
 const NAV_ITEMS = [
   { label: "Features", href: "/#features" },
   { label: "How it works", href: "/#how-it-works" },
-  { label: "Workflows", href: "/#workflows" },
+  { label: "Docs", href: "https://docs.zuperix.com", target: "_blank" },
   { label: "Use cases", href: "/#use-cases" },
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
