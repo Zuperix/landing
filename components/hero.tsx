@@ -102,7 +102,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="main-content"
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden px-6 pt-40 pb-20"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-20"
       aria-labelledby="hero-heading"
     >
       {/* Subtle grid background with mouse parallax */}
@@ -134,8 +134,25 @@ export function Hero() {
         initial="hidden"
         animate="visible"
         style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative z-10 flex flex-col items-center"
+        className="relative z-10 flex flex-col items-center group"
       >
+
+        {/* ASK WITH AI Pill - Appears on hover of the hero content */}
+        <div
+          className="flex items-center gap-3 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-md mb-8 shadow-sm transition-all duration-300 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+        >
+          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Ask with AI:</span>
+          <div className="flex items-center gap-4">
+            <Link 
+              href="https://chatgpt.com/?q=What+is+Zuperix+DAM+and+how+does+it+help+teams+organize+assets+better+than+traditional+folder+structures?" 
+              target="_blank"
+              className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity"
+            >
+              <span className="text-sm">💬</span>
+              <span className="text-xs font-medium text-foreground">ChatGPT</span>
+            </Link>
+          </div>
+        </div>
 
         {/* Heading */}
         <motion.h1
@@ -143,9 +160,8 @@ export function Hero() {
           id="hero-heading"
           className="relative text-balance text-center font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground max-w-4xl mb-6"
         >
-          Enterprise-Grade Digital Asset Management at{" "}
+          The DAM Built for AI Workflows{" "}
           <span className="bg-gradient-to-r from-brand to-[oklch(0.65_0.25_280)] bg-clip-text text-transparent">
-            Startup Pricing.
           </span>
         </motion.h1>
 
@@ -200,9 +216,12 @@ export function Hero() {
               size="lg"
               variant="outline"
               className="w-full sm:w-auto gap-2 px-8 h-12 text-base hover:bg-accent/80 transition-all active:scale-95"
+              asChild
             >
-              <Play className="w-4 h-4" aria-hidden="true" />
-              Watch Demo
+              <Link href="https://www.youtube.com/@zuperix-dam" target="_blank">
+                <Play className="w-4 h-4" aria-hidden="true" />
+                Watch Demo
+              </Link>
             </Button>
           </Magnetic>
         </motion.div>
@@ -213,9 +232,9 @@ export function Hero() {
           className="relative flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-16 text-sm"
         >
           {[
-            { value: "2.4k+", label: "GitHub stars" },
-            { value: "50M+", label: "Assets indexed" },
-            { value: "<100ms", label: "Search latency" },
+            { value: "1M+", label: "Assets indexed" },
+            { value: "<100ms", label: "Search Latency" },
+            { value: "99.9%", label: "Uptime" },
           ].map((stat) => (
             <div key={stat.label} className="flex items-center gap-2 group/stat cursor-default">
               <span className="font-bold text-foreground group-hover:text-brand transition-colors">{stat.value}</span>

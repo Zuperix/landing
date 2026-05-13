@@ -28,7 +28,6 @@ export default function Page() {
         <McpSection />
         <IntegrationsSection />
         <UseCases />
-        <Testimonials />
         <Comparison />
         <Faq />
         <CtaSection />

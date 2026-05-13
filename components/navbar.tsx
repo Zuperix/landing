@@ -167,11 +167,10 @@ export function Navbar() {
               rel="noopener noreferrer"
               whileHover={{ y: -2 }}
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-accent/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-              aria-label="Star on GitHub"
+              aria-label="View on GitHub"
             >
               <Github className="w-4 h-4" />
-              <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-              <span className="font-semibold text-foreground">2.4k</span>
+              <span className="font-semibold text-foreground">GitHub</span>
             </motion.a>
             <Magnetic intensity={0.2}>
               <Button 
@@ -235,10 +234,6 @@ export function Navbar() {
                       <div className="flex items-center gap-2">
                         <Github className="w-5 h-5" />
                         <span>GitHub</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                        <span className="font-semibold text-foreground">2.4k</span>
                       </div>
                     </a>
                   </Button>
