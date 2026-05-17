@@ -10,6 +10,195 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "affordable-dam-solutions-2026",
+    title: "Top 5 Affordable Digital Asset Management (DAM) Solutions for SMBs",
+    description: "Compare the top budget-friendly DAM platforms – Razuna, Filecamp, Air, and Zuperix – covering pricing, features, SEO capabilities, and why Zuperix is the best choice for small teams.",
+    date: "May 18, 2026",
+    author: "Zuperix Team",
+    image: "/blog/affordable-dam-solutions.png",
+    content: `
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Digital Asset Management (DAM) software centralizes an organization’s images, videos, documents, and other media in a searchable, secure library. For small-to-medium businesses (SMBs), legacy enterprise DAM platforms are often prohibitively expensive. Fortunately, a new wave of affordable DAM solutions caters to scaling teams by offering unlimited users, simple pricing based on storage rather than seat counts, and vital features like metadata tagging, versioning, and secure public sharing.</p>
+
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">In this article, we compare four popular budget-friendly DAM systems – <strong>Razuna</strong>, <strong>Filecamp</strong>, <strong>Air</strong> (Air Inc.), and <strong>Zuperix</strong> – based on pricing, core features, search capabilities, SEO features, and data security. According to IBM, a modern DAM should act as a <em>“searchable, centralized repository where teams can access media assets,”</em> providing seamless version control and access management. Our head-to-head comparison shows that while all four support major asset types, <strong>Zuperix</strong> delivers enterprise-grade semantic search, automated AI extraction, and open-source sovereignty at the lowest entry point.</p>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Feature & Pricing Comparison</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Let's examine how the top budget-friendly players stack up on key features, limits, and pricing. Below is an exhaustive summary comparing the primary tiers and capabilities of each platform.</p>
+
+      <div class="overflow-x-auto my-12 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+        <table class="w-full text-left border-collapse min-w-[800px]">
+          <thead>
+            <tr class="border-b border-white/10 bg-white/[0.05]">
+              <th class="p-4 text-sm font-bold text-white">Feature / Plan</th>
+              <th class="p-4 text-sm font-bold text-slate-300">Razuna</th>
+              <th class="p-4 text-sm font-bold text-slate-300">Filecamp</th>
+              <th class="p-4 text-sm font-bold text-slate-300">Air (Air Inc.)</th>
+              <th class="p-4 text-sm font-bold text-brand">Zuperix</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5 text-sm text-slate-300">
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Pricing (per month)</td>
+              <td class="p-4 leading-relaxed">Free: 500 GB; then $99/TB (1 TB), $499 (5 TB)</td>
+              <td class="p-4 leading-relaxed">$29 (20 GB) – $89 (100 GB)</td>
+              <td class="p-4 leading-relaxed">Free: ~20 GB; Paid: ~$25/mo up to $1,100/mo</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">$8 (50 GB), $20 (500 GB), $82 (2 TB)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Storage (included)</td>
+              <td class="p-4 leading-relaxed">500 GB (free); 1 TB at $99; scalable</td>
+              <td class="p-4 leading-relaxed">20, 50, or 100 GB</td>
+              <td class="p-4 leading-relaxed">~20 GB (free); Starter (~100 GB); Business (up to 5 TB)</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">50 GB (Bronze), 500 GB (Silver), 2 TB (Gold)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Users</td>
+              <td class="p-4 leading-relaxed font-semibold text-white">Unlimited</td>
+              <td class="p-4 leading-relaxed font-semibold text-white">Unlimited</td>
+              <td class="p-4 leading-relaxed font-semibold text-white">Unlimited</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Supported Assets</td>
+              <td class="p-4 leading-relaxed">All common formats (images, vector, RAW, video, audio, docs, 3D, etc.)</td>
+              <td class="p-4 leading-relaxed">Images, video, audio, PDFs, design files, etc.</td>
+              <td class="p-4 leading-relaxed">Images, video, audio, design files, PDFs</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">All common types (images, video, docs, audio, etc.)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Metadata & Tagging</td>
+              <td class="p-4 leading-relaxed">Custom fields, AI-powered auto-tagging (faces, objects)</td>
+              <td class="p-4 leading-relaxed">Keyword tags, XMP embedding, AI auto-tag (Adv/Pro)</td>
+              <td class="p-4 leading-relaxed">Custom tags, AI tags, comments/notes</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Custom schemas, AI tags (face recognition, OCR)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Search</td>
+              <td class="p-4 leading-relaxed">Natural-language (semantic), filters, similarity</td>
+              <td class="p-4 leading-relaxed">Text search with filters</td>
+              <td class="p-4 leading-relaxed">AI-powered search (content, people, visual) + Kanban</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Neural semantic search, full-text (OCR) search, visual similarity</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Version Control</td>
+              <td class="p-4 leading-relaxed">Yes – version history, rollback</td>
+              <td class="p-4 leading-relaxed">Yes (revision history)</td>
+              <td class="p-4 leading-relaxed">Yes – multiple file versions with comments</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Yes – maintains version history and diffs</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Sharing</td>
+              <td class="p-4 leading-relaxed">Branded portals, expiring links, passwords</td>
+              <td class="p-4 leading-relaxed">Secure links (password/expiry), white-label portals</td>
+              <td class="p-4 leading-relaxed">Share links with permissions (view/comment)</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Public sharing portals, role access, guest links</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Integrations & API</td>
+              <td class="p-4 leading-relaxed">REST API, SAML SSO, Dropbox/Drive sync</td>
+              <td class="p-4 leading-relaxed">No public API (Office/Adobe only)</td>
+              <td class="p-4 leading-relaxed">Figma, Canva, Slack, Zapier, Shopify, N8N, Public API</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Google Drive sync, Webhooks/API, Zapier</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">CDN / Delivery</td>
+              <td class="p-4 leading-relaxed">Global CDN (Enterprise options)</td>
+              <td class="p-4 leading-relaxed">Fast loading (free bandwidth), previews</td>
+              <td class="p-4 leading-relaxed">Fast CDN on Business/Enterprise</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">High-performance cloud hosting</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Security</td>
+              <td class="p-4 leading-relaxed">AES-256, SOC2 Type II, SSO/SAML</td>
+              <td class="p-4 leading-relaxed">SSL/TLS, ISO 27001 infra</td>
+              <td class="p-4 leading-relaxed">SOC 2 Type II; data encrypted</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">99.9% uptime SLA (cloud); self-host gives full control (AGPL open-source)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">Support</td>
+              <td class="p-4 leading-relaxed">Email, knowledge base; enterprise SLA</td>
+              <td class="p-4 leading-relaxed">Email, online docs</td>
+              <td class="p-4 leading-relaxed">Email/ticket; dedicated 24/7 on Enterprise</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Community (Slack, GitHub); cloud has email support</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white bg-white/[0.01]">SEO Features</td>
+              <td class="p-4 leading-relaxed">Custom domains, XMP metadata, ALT tags</td>
+              <td class="p-4 leading-relaxed">Custom domain (Pro), auto-tags, image AI</td>
+              <td class="p-4 leading-relaxed">No explicit SEO tools</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Advanced metadata (OCR-text), open self-hosting control</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Razuna (Open-Source, SMB Focus)</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Razuna is a highly flexible, veteran solution offered as both a self-hosted open-source software and a managed cloud platform. Its main superpower is supporting any common asset format—from standard high-resolution images and vector graphic files to heavy RAW cameras, audio tracks, videos, and multi-page document PDFs. The free plan offers a generous 500 GB tier for up to 3 users, making it incredibly accessible for solo creators. When you scale, the Unlimited plan starts at $99/month for 1 TB of storage (supporting unlimited team users) and scales with storage volume bundles.</p>
+      
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Crucially, Razuna includes built-in semantic search, natural-language query tools, custom metadata grouping schemas, versioning with historical rollback, and secure public portals that support password locking and expiring access links. The cloud environment is fully SOC 2 Type II certified. <strong>Pros:</strong> Powerful metadata controls, semantic querying options, and no per-user licensing fees. <strong>Cons:</strong> The interface looks quite dated compared to modern sleek SaaS tools, and accessing the most advanced AI features (like full video object analysis) requires migrating to custom plans.</p>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Filecamp (Web Portal for Creative Teams)</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Filecamp is an exceptionally simple web-based portal designed for small companies and agencies seeking custom-branded sharing capabilities. It offers standard per-tier pricing beginning at $29/month for 20 GB (Basic), $59/month for 50 GB (Advanced), and $89/month for 100 GB (Professional), all with support for unlimited users. Filecamp stands out due to its plug-and-play visual board layout, folder organization, drag-and-drop uploads, and rich brand themes that let you white-label portals for external clients.</p>
+
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Metadata handling relies heavily on keyword tagging and standard XMP data embedding. The Advanced and Pro levels introduce a single-click AI auto-tagging helper to categorize images dynamically, custom domains, and media player embedding. <strong>Pros:</strong> Visually pleasing, highly praised by users for its easy onboarding and setup, and exceptionally robust white-labeling features at a low price point. <strong>Cons:</strong> Lacks robust search technology (no semantic neural search, only simple keyword and text queries), has lower storage limits compared to its cost, and lacks built-in workflows (e.g. creative approval steps).</p>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Air (Air Inc.) – Creative Cloud & DAM Hybrid</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Air is a modern board-based creative DAM that acts as a bridge between file storage and collaborative creative production. It offers a free tier supporting 120 credits per month (~20 GB of AI-enriched storage) and utilizes credit-based scaling for paid plans. The entry-level paid plan starts at roughly $25/month for 600 credits (approx. 100 GB) and ranges to $1,100/month for Enterprise scales. It includes unlimited user seats across all levels, making it convenient for large external freelancer networks.</p>
+
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Air provides a beautifully designed boards system resembling a visual grid, comments and markups on assets, an interactive AI Workspace named "Canvas" for generating assets, and direct integrations with popular tools like Figma, Slack, Dropbox, and Shopify. Air is SOC 2 Type II certified. <strong>Pros:</strong> A gorgeous, state-of-the-art UI, high-end collaborative review tools, and intelligent tagging (searching by people, facial profiles, and key objects). <strong>Cons:</strong> Credit-based consumption can be difficult to predict, and the platform gets expensive rapidly as storage requirements grow—several users have reported that the price curves represent a significant steep cost for small startups.</p>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Zuperix (Open-Source AI DAM)</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix is a cutting-edge, AI-native DAM platform designed to offer enterprise-grade capabilities at startup pricing. Available as both a cloud-managed SaaS and a free open-source (self-hosted AGPL v3) project, Zuperix is built for velocity. The cloud tiers start at $8/month for 50 GB (Bronze), $20/month for 500 GB (Silver), and $82/month for 2 TB (Gold). Every single plan includes unlimited users, duplicate file detection, advanced workflow triggers, and customizable public sharing portals.</p>
+
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">The core advantage of Zuperix lies in its deep AI integration. When files are uploaded, Zuperix instantly triggers natural-language semantic tagging, face detection, full Optical Character Recognition (OCR) to extract text from images and PDF documents, and automated video/audio transcribing. This allows team members to discover assets using conversational search phrases (like <em>“find high-res vectors of skylines at sunset”</em>) rather than relying on perfect manual tag compliance. The system is extremely secure and provides cloud-level SLA guarantees of 99.9% uptime. <strong>Pros:</strong> Powerful AI intelligence (OCR, face recognition, semantic search) available at a fraction of competitors' costs, zero user seat fees, and complete data ownership with a self-hosted option. <strong>Cons:</strong> As a rapidly growing modern solution, it has a smaller footprint of legacy integrations compared to decades-old providers (though its REST API and Zapier integration bridge this gap easily).</p>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Why Zuperix Stands Out (Best Affordable Choice)</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">For businesses aiming to scale their creative assets while maintaining an efficient budget, Zuperix is the clear winner for several reasons:</p>
+      
+      <ul class="text-muted-foreground space-y-4 my-8">
+        <li><strong class="text-white">Exceptional Cost Value:</strong> Zuperix's cloud plans are 3x to 4x cheaper than Razuna or Air for identical storage. A mid-sized library of 500 GB costs only $20/month on Zuperix, compared to $59/month on Filecamp or ~$99/month on Razuna. The Bronze tier ($8/mo) provides a highly functional AI entry point that undercuts Canto, Air, and other competitors.</li>
+        <li><strong class="text-white">AI-Powered SEO Benefits:</strong> Zuperix leverages native AI to automatically enrich every single asset. OCR-extracted text and AI-tagged labels are saved directly to the asset's metadata record. When assets are embedded in your CMS via Zuperix’s CDN or API, this rich metadata is readily accessible to automate alt-text, descriptions, and captions. Additionally, public sharing portals are sitemap-optimized and crawlable by search engines, unlike generic siloed file links.</li>
+        <li><strong class="text-white">Deep Feature Integrity:</strong> Zuperix doesn't lock vital security or organization features behind expensive tiers. Even Bronze users get robust access logs, duplicate asset filters, global CDN delivery, and full-text document search.</li>
+        <li><strong class="text-white">Self-Hosted Sovereignty:</strong> Because Zuperix's core is open-source (GNU AGPL v3), companies with engineering resources can host Zuperix locally. This eliminates hosting bills entirely, ensures total privacy, and allows technical teams to configure sitemaps, canonical tags, and routing at the server level.</li>
+      </ul>
+
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Ultimately, Zuperix democratizes digital asset management. It eliminates the clunky, labor-intensive manual tagging of the past and replaces it with an intelligent, highly automated, and affordable platform that empowers teams to spend less time organizing and more time creating.</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-4 my-16 text-center">
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-center items-center shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-sm mb-3">1</div>
+          <span class="text-white font-medium text-sm">Upload Assets</span>
+        </div>
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-center items-center shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-sm mb-3">2</div>
+          <span class="text-white font-medium text-sm">AI Auto-Tagging</span>
+        </div>
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-center items-center shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-sm mb-3">3</div>
+          <span class="text-white font-medium text-sm">Organize Vaults</span>
+        </div>
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-center items-center shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-sm mb-3">4</div>
+          <span class="text-white font-medium text-sm">Search & Discover</span>
+        </div>
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-center items-center shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-sm mb-3">5</div>
+          <span class="text-white font-medium text-sm">Share Portals</span>
+        </div>
+        <div class="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-center items-center shadow-lg">
+          <div class="w-10 h-10 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand font-bold text-sm mb-3">6</div>
+          <span class="text-white font-medium text-sm">Review Analytics</span>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Suggested Links</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+        • Internal: Read our core breakdown on <a href="/blog/why-your-business-needs-a-dam-system" class="text-brand hover:underline font-semibold">Why Your Business Needs a DAM System</a> to learn more about the fundamentals of asset centralization.<br />
+        • Internal: Discover the benefits of cloud storage connections in our guide to <a href="/blog/zero-copy-dam-google-drive-integration" class="text-brand hover:underline font-semibold">Zero-Copy Google Drive Sync</a>.<br />
+        • External: Review IBM's guide on <a href="https://www.ibm.com/topics/digital-asset-management" target="_blank" rel="noopener noreferrer" class="text-brand hover:underline font-semibold">What is Digital Asset Management?</a> for high-level industry patterns.
+      </p>
+    `
+  },
+  {
     slug: "zuperix-vs-bynder-cloudinary-dam-comparison",
     title: "Zuperix vs Bynder vs Cloudinary: The Honest DAM Comparison",
     description: "Enterprise DAMs charge enterprise prices. We break down how Zuperix delivers comparable features at a fraction of the cost.",

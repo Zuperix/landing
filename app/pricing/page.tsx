@@ -48,12 +48,11 @@ const PRICING_TIERS = [
       "Advanced Natural Language Search",
       "Facial Recognition",
       "10M API calls/mo",
-      "Zapier Integration",
-      "1TB Cloud Storage",
+      "2TB Cloud Storage",
     ],
     icon: Medal,
     iconColor: "text-yellow-400",
-    cta: "Coming Soon",
+    cta: "Start Free Trial",
   },
   {
     name: "Silver",
@@ -63,6 +62,7 @@ const PRICING_TIERS = [
     features: [
       "OCR and Text Extraction",
       "1M API calls/mo",
+      "5+ Integrations",
       "MCP Support",
       "Public API & Webhooks",
       "500GB Cloud Storage",
@@ -237,17 +237,17 @@ export default function PricingPage() {
                   </div>
 
                   <Button
-                    disabled={tier.cta === "Coming Soon" || tier.name === "Gold"}
+                    disabled={tier.cta === "Coming Soon"}
                     className={cn(
                       "w-full h-14 text-sm font-black rounded-2xl transition-all active:scale-95 group shadow-xl uppercase tracking-widest",
                       tier.name === "Silver"
                         ? "bg-brand hover:bg-brand-dim text-white border-0 shadow-brand/20"
                         : "bg-secondary hover:bg-secondary/80 text-foreground border border-border",
-                      (tier.cta === "Coming Soon" || tier.name === "Gold") && "opacity-50 grayscale cursor-not-allowed"
+                      tier.cta === "Coming Soon" && "opacity-50 grayscale cursor-not-allowed"
                     )}
                   >
-                    {tier.name === "Gold" ? "Coming Soon" : tier.cta === "Start Free Trial" ? `Start ${tier.name} Trial` : tier.cta}
-                    {(tier.cta !== "Coming Soon" && tier.name !== "Gold") && (
+                    {tier.cta === "Start Free Trial" ? `Start ${tier.name} Trial` : tier.cta}
+                    {tier.cta !== "Coming Soon" && (
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     )}
                   </Button>
@@ -383,6 +383,12 @@ export default function PricingPage() {
                   <td colSpan={4} className="py-4 px-4 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground/60">Integrations</td>
                 </tr>
                 <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Integrations Included</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">15+ (All)</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight text-brand">5+ Integrations</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight text-muted-foreground/60">Essential Only</td>
+                </tr>
+                <tr>
                   <td className="py-5 px-4 text-sm font-medium">Google Drive Integration</td>
                   <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
                   <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><Check className="w-5 h-5 mx-auto text-brand" /></td>
@@ -408,7 +414,7 @@ export default function PricingPage() {
                 </tr>
                 <tr>
                   <td className="py-5 px-4 text-sm font-medium">Zapier Integration</td>
-                  <td className="py-5 px-4 text-center"><Check className="w-5 h-5 mx-auto text-emerald-500" /></td>
+                  <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
                   <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
                   <td className="py-5 px-4 text-center"><X className="w-4 h-4 mx-auto text-muted-foreground/30" /></td>
                 </tr>
@@ -419,7 +425,7 @@ export default function PricingPage() {
                 </tr>
                 <tr>
                   <td className="py-5 px-4 text-sm font-medium">Included Storage</td>
-                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">1 TB</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">2 TB</td>
                   <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight">500 GB</td>
                   <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">50 GB</td>
                 </tr>
