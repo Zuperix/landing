@@ -47,8 +47,11 @@ const PRICING_TIERS = [
     features: [
       "Advanced Natural Language Search",
       "Facial Recognition",
-      "10M API calls/mo",
+      "Video Transcription (1,500 min/mo)",
+      "1M API calls/mo",
       "2TB Cloud Storage",
+      "Unlimited Workspaces",
+      "99.9% SLA",
     ],
     icon: Medal,
     iconColor: "text-yellow-400",
@@ -61,7 +64,9 @@ const PRICING_TIERS = [
     description: "Great for small teams looking to stay organized and move faster.",
     features: [
       "OCR and Text Extraction",
-      "1M API calls/mo",
+      "Video Transcription (150 min/mo)",
+      "100K API calls/mo",
+      "5 Workspaces",
       "5+ Integrations",
       "MCP Support",
       "Public API & Webhooks",
@@ -78,6 +83,7 @@ const PRICING_TIERS = [
     yearlyPrice: "99",
     description: "Simple and affordable plan for individuals and early-stage projects.",
     features: [
+      "1 Workspace",
       "Unlimited Users",
       "Essential Search & Filtering",
       "Workflow Automation",
@@ -402,8 +408,8 @@ export default function PricingPage() {
                 </tr>
                 <tr>
                   <td className="py-5 px-4 text-sm font-medium">API Request Limit</td>
-                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">10M / mo</td>
-                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight text-brand">1M / mo</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">1M / mo</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight text-brand">100K / mo</td>
                   <td className="py-5 px-4 text-center text-sm font-bold tracking-tight text-rose-500/80">0 / mo</td>
                 </tr>
                 <tr>
@@ -428,6 +434,12 @@ export default function PricingPage() {
                   <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">2 TB</td>
                   <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight">500 GB</td>
                   <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">50 GB</td>
+                </tr>
+                <tr>
+                  <td className="py-5 px-4 text-sm font-medium">Included Workspaces</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">Unlimited</td>
+                  <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight text-brand">5</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">1</td>
                 </tr>
                 <tr>
                   <td className="py-5 px-4 text-sm font-medium">Duplicate Manager</td>
@@ -496,7 +508,7 @@ export default function PricingPage() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-black text-white">$6</p>
+                  <p className="text-2xl font-black text-white">$10</p>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase opacity-70">per month</p>
                 </div>
               </div>
@@ -543,7 +555,7 @@ export default function PricingPage() {
                   </p>
 
                   <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-3 mb-8">
-                    {["SSO/SAML", "Private VPC", "Custom SLA", "24/7 Support"].map((item) => (
+                    {["SSO/SAML", "Private VPC", "Custom API Limits", "Custom SLA", "24/7 Support"].map((item) => (
                       <div key={item} className="flex items-center gap-2 text-xs font-medium text-foreground/60">
                         <Check className="w-3.5 h-3.5 text-brand" />
                         {item}
