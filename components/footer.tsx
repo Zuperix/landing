@@ -19,7 +19,6 @@ const footerLinks: FooterLinkGroup[] = [
       { label: "How it works", href: "/#how-it-works" },
       { label: "Pricing", href: "/pricing" },
       { label: "Use cases", href: "/#use-cases" },
-      { label: "Changelog", href: "/changelog" },
     ],
   },
   {
@@ -28,13 +27,13 @@ const footerLinks: FooterLinkGroup[] = [
       { label: "Documentation", href: "https://docs.zuperix.com/" },
       { label: "Community", href: "#" },
       { label: "GitHub", href: "https://github.com/zuperix/zuperix" },
-      { label: "Roadmap", href: "#" },
+      { label: "Roadmap", href: "/roadmap" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About", href: "#" },
+      { label: "About", href: "/about" },
       { label: "Blog", href: "#" },
       { label: "Contact", href: "#" },
       { label: "Status", href: "https://status.zuperix.com/" },
