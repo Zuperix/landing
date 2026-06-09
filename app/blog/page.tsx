@@ -17,8 +17,36 @@ export const metadata: Metadata = {
 }
 
 export default function BlogListingPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Zuperix Blog",
+    "description": "Stay updated with the latest in Digital Asset Management, AI-powered search, and how to scale your creative workflows with Zuperix.",
+    "url": "https://zuperix.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zuperix",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://zuperix.com/logo_transparant.png"
+      }
+    },
+    "blogPost": BLOG_POSTS.map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.description,
+      "datePublished": new Date(post.date).toISOString(),
+      "url": `https://zuperix.com/blog/${post.slug}`,
+      "image": `https://zuperix.com${post.image}`
+    }))
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-background pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
