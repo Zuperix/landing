@@ -56,11 +56,53 @@ export default function PricingLayout({
     }
   }
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Zuperix Cloud",
+    "description": "AI-Powered Digital Asset Management Cloud Plans",
+    "image": "https://zuperix.com/logo_transparant.png",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "10",
+      "highPrice": "99",
+      "offerCount": "3",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Bronze Plan",
+          "price": "10",
+          "priceCurrency": "USD",
+          "url": "https://zuperix.com/pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Silver Plan",
+          "price": "25",
+          "priceCurrency": "USD",
+          "url": "https://zuperix.com/pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Gold Plan",
+          "price": "99",
+          "priceCurrency": "USD",
+          "url": "https://zuperix.com/pricing"
+        }
+      ]
+    }
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       {children}
     </>

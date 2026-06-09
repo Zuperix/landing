@@ -15,8 +15,46 @@ import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
 export default function Page() {
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Zuperix",
+    "url": "https://zuperix.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://zuperix.com/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const softwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Zuperix",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "description": "Search, tag, and manage images, videos, and files using AI-powered natural language. Fully open-source DAM platform.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free open-source self-hosted version available."
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <Hero />
