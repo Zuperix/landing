@@ -1,13 +1,14 @@
 import { MetadataRoute } from 'next'
-import { BLOG_POSTS } from '@/lib/blog'
+import { getBlogPosts } from '@/lib/blog'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://zuperix.com'
 
   // Static routes
   const routes = [
     '',
     '/pricing',
+    '/integrations',
     '/blog',
     '/about',
     '/roadmap',
@@ -21,12 +22,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Dynamic blog routes
-  const blogRoutes = BLOG_POSTS.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
+  const posts = await getBlogPosts()
+  const blogRoutes = posts.map((post) => {
+    let lastMod = new Date()
+    try {
+      const parsed = Date.parse(post.date)
+      if (!isNaN(parsed)) {
+        lastMod = new Date(parsed)
+      }
+    } catch (_) {}
+
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: lastMod,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }
+  })
 
   return [...routes, ...blogRoutes]
 }

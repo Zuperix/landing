@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { label: "How it works", href: "/#how-it-works" },
   { label: "Docs", href: "https://docs.zuperix.com", target: "_blank" },
   { label: "Use cases", href: "/#use-cases" },
+  { label: "Integrations", href: "/integrations" },
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
 ]

@@ -444,3 +444,168 @@ export const BLOG_POSTS: BlogPost[] = [
     `
   }
 ];
+
+const STORYBLOK_TOKEN = process.env.NEXT_PUBLIC_STORYBLOK_TOKEN;
+
+export function renderRichText(node: any): string {
+  if (!node) return "";
+  if (typeof node === "string") return node;
+  
+  if (Array.isArray(node)) {
+    return node.map(renderRichText).join("");
+  }
+  
+  if (node.type === "doc") {
+    return renderRichText(node.content);
+  }
+  
+  if (node.type === "paragraph") {
+    return `<p class="text-lg text-muted-foreground leading-relaxed mb-8">${renderRichText(node.content)}</p>`;
+  }
+  
+  if (node.type === "heading") {
+    const level = node.attrs?.level || 2;
+    if (level === 1) {
+      return `<h1 class="text-4xl font-bold text-white mt-12 mb-6">${renderRichText(node.content)}</h1>`;
+    } else if (level === 2) {
+      return `<h2 class="text-3xl font-bold text-white mt-12 mb-6">${renderRichText(node.content)}</h2>`;
+    } else {
+      return `<h3 class="text-2xl font-bold text-white mt-10 mb-4">${renderRichText(node.content)}</h3>`;
+    }
+  }
+
+  if (node.type === "text") {
+    let text = node.text || "";
+    if (node.marks) {
+      for (const mark of node.marks) {
+        if (mark.type === "bold") {
+          text = `<strong class="text-white">${text}</strong>`;
+        }
+        if (mark.type === "italic") {
+          text = `<em>${text}</em>`;
+        }
+        if (mark.type === "link") {
+          const href = mark.attrs?.href || "#";
+          const target = mark.attrs?.target ? ` target="${mark.attrs.target}"` : "";
+          text = `<a href="${href}"${target} class="text-brand hover:underline font-semibold">${text}</a>`;
+        }
+      }
+    }
+    return text;
+  }
+  
+  if (node.type === "bullet_list") {
+    return `<ul class="text-muted-foreground space-y-4 my-8 text-lg list-disc pl-6">${renderRichText(node.content)}</ul>`;
+  }
+  
+  if (node.type === "ordered_list") {
+    return `<ol class="text-muted-foreground space-y-4 my-8 text-lg list-decimal pl-6">${renderRichText(node.content)}</ol>`;
+  }
+  
+  if (node.type === "list_item") {
+    return `<li>${renderRichText(node.content)}</li>`;
+  }
+
+  if (node.type === "blockquote") {
+    return `<div class="bg-brand/5 border-l-4 border-brand p-8 my-12 rounded-r-2xl"><p class="text-xl font-medium text-white italic">${renderRichText(node.content)}</p></div>`;
+  }
+
+  if (node.type === "code_block") {
+    return `<pre class="bg-secondary p-4 rounded-xl overflow-x-auto my-6 font-mono text-sm"><code>${renderRichText(node.content)}</code></pre>`;
+  }
+
+  if (node.type === "horizontal_rule") {
+    return `<hr class="border-border/40 my-12" />`;
+  }
+
+  if (node.content) {
+    return renderRichText(node.content);
+  }
+  
+  return "";
+}
+
+function parseImage(img: any): string {
+  if (!img) return "/blog-why-dam.png";
+  if (typeof img === "string") return img;
+  if (img.filename) return img.filename;
+  return "/blog-why-dam.png";
+}
+
+export async function getBlogPosts(): Promise<BlogPost[]> {
+  if (!STORYBLOK_TOKEN) {
+    console.log("No STORYBLOK_TOKEN provided, falling back to local blog posts");
+    return BLOG_POSTS;
+  }
+
+  try {
+    const res = await fetch(
+      `https://api.storyblok.com/v2/cdn/stories?token=${STORYBLOK_TOKEN}&starts_with=blog/&version=published`,
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) {
+      throw new Error(`Failed to fetch from Storyblok: ${res.status}`);
+    }
+    const data = await res.json();
+    if (!data.stories || data.stories.length === 0) {
+      return BLOG_POSTS;
+    }
+    return data.stories.map((story: any) => {
+      const c = story.content;
+      return {
+        slug: story.slug || story.full_slug.replace("blog/", ""),
+        title: c.title || story.name,
+        description: c.description || "",
+        date: c.date || new Date(story.first_published_at || story.created_at).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }),
+        author: c.author || "Zuperix Team",
+        image: parseImage(c.image),
+        content: renderRichText(c.content),
+      };
+    });
+  } catch (error) {
+    console.error("Error fetching stories from Storyblok, falling back:", error);
+    return BLOG_POSTS;
+  }
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  if (!STORYBLOK_TOKEN) {
+    console.log("No STORYBLOK_TOKEN provided, falling back to local post");
+    return BLOG_POSTS.find((p) => p.slug === slug);
+  }
+
+  try {
+    const res = await fetch(
+      `https://api.storyblok.com/v2/cdn/stories/blog/${slug}?token=${STORYBLOK_TOKEN}&version=published`,
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) {
+      const localPost = BLOG_POSTS.find((p) => p.slug === slug);
+      if (localPost) return localPost;
+      throw new Error(`Failed to fetch story ${slug}: ${res.status}`);
+    }
+    const data = await res.json();
+    const story = data.story;
+    const c = story.content;
+    return {
+      slug: story.slug,
+      title: c.title || story.name,
+      description: c.description || "",
+      date: c.date || new Date(story.first_published_at || story.created_at).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      author: c.author || "Zuperix Team",
+      image: parseImage(c.image),
+      content: renderRichText(c.content),
+    };
+  } catch (error) {
+    console.error(`Error fetching story by slug ${slug} from Storyblok, falling back:`, error);
+    return BLOG_POSTS.find((p) => p.slug === slug);
+  }
+}

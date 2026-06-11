@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { BLOG_POSTS } from "@/lib/blog"
+import { getBlogPostBySlug, getBlogPosts } from "@/lib/blog"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { ClientBlogPost } from "@/components/client-blog-post"
@@ -13,7 +13,7 @@ interface BlogPostPageProps {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = BLOG_POSTS.find((p) => p.slug === slug)
+  const post = await getBlogPostBySlug(slug)
   if (!post || !post.title || !post.description) return { title: "Post Not Found" }
 
   return {
@@ -37,15 +37,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({
+  const posts = await getBlogPosts()
+  return posts.map((post) => ({
     slug: post.slug,
   }))
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const post = BLOG_POSTS.find((p) => p.slug === slug)
+  const post = await getBlogPostBySlug(slug)
   if (!post) notFound()
+
+  const allPosts = await getBlogPosts()
+  const relatedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 2)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -80,7 +84,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <ClientBlogPost post={post} />
+      <ClientBlogPost post={post} relatedPosts={relatedPosts} />
       <Footer />
     </>
   )

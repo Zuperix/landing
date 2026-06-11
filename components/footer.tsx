@@ -19,6 +19,7 @@ const footerLinks: FooterLinkGroup[] = [
       { label: "How it works", href: "/#how-it-works" },
       { label: "Pricing", href: "/pricing" },
       { label: "Use cases", href: "/#use-cases" },
+      { label: "Integrations", href: "/integrations" },
     ],
   },
   {

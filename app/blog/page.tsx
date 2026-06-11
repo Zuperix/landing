@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { BLOG_POSTS } from "@/lib/blog"
+import { getBlogPosts } from "@/lib/blog"
 import Link from "next/link"
 import Image from "next/image"
 import { Metadata } from "next"
@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogListingPage() {
+export default async function BlogListingPage() {
+  const posts = await getBlogPosts();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -31,7 +33,7 @@ export default function BlogListingPage() {
         "url": "https://zuperix.com/logo_transparant.png"
       }
     },
-    "blogPost": BLOG_POSTS.map((post) => ({
+    "blogPost": posts.map((post) => ({
       "@type": "BlogPosting",
       "headline": post.title,
       "description": post.description,
@@ -62,7 +64,7 @@ export default function BlogListingPage() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {BLOG_POSTS.map((post) => (
+            {posts.map((post) => (
               <article 
                 key={post.slug}
                 className="group flex flex-col bg-card/50 backdrop-blur-xl border border-border/50 rounded-3xl overflow-hidden hover:border-brand/40 transition-all duration-500 shadow-2xl hover:shadow-brand/5"

@@ -220,10 +220,13 @@ export function IntegrationsSection() {
               <p className="text-white/40 text-lg mb-8 leading-relaxed max-w-sm">
                 Zuperix orchestrates your assets across every platform you love, syncing teams and tools effortlessly.
               </p>
-              <div className="flex items-center gap-2 text-brand font-bold text-sm group-hover:gap-3 transition-all cursor-pointer">
+              <Link 
+                href="/integrations"
+                className="flex items-center gap-2 text-brand font-bold text-sm group-hover:gap-3 transition-all cursor-pointer hover:text-brand-dim"
+              >
                 <span>See all integrations</span>
                 <ExternalLink className="w-4 h-4" />
-              </div>
+              </Link>
             </div>
           </motion.div>
 
