@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useCallback } from "react"
-import { Github, Menu, X, ArrowRight, Star } from "lucide-react"
+import { Menu, X, ArrowRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
@@ -162,17 +162,6 @@ export function Navbar() {
 
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <motion.a
-              href="https://github.com/zuperix/zuperix"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-accent/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand"
-              aria-label="View on GitHub"
-            >
-              <Github className="w-4 h-4" />
-              <span className="font-semibold text-foreground">GitHub</span>
-            </motion.a>
             <Magnetic intensity={0.2}>
               <Button 
                 size="sm" 
@@ -226,18 +215,6 @@ export function Navbar() {
                   </Link>
                 ))}
                 <div className="flex flex-col gap-3 pt-6 border-t border-border mt-4">
-                  <Button 
-                    variant="outline"
-                    className="w-full justify-between h-12 text-base px-6"
-                    asChild
-                  >
-                    <a href="https://github.com/zuperix/zuperix" target="_blank" rel="noopener noreferrer">
-                      <div className="flex items-center gap-2">
-                        <Github className="w-5 h-5" />
-                        <span>GitHub</span>
-                      </div>
-                    </a>
-                  </Button>
                   <Button 
                     className="w-full bg-brand hover:bg-brand-dim text-white h-12 text-base px-6 gap-2"
                     asChild

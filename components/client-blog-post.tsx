@@ -8,9 +8,10 @@ import { BlogPost } from "@/lib/blog"
 
 interface ClientBlogPostProps {
   post: BlogPost
+  relatedPosts: BlogPost[]
 }
 
-export function ClientBlogPost({ post }: ClientBlogPostProps) {
+export function ClientBlogPost({ post, relatedPosts }: ClientBlogPostProps) {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -43,6 +44,18 @@ export function ClientBlogPost({ post }: ClientBlogPostProps) {
 
           {/* Header */}
           <header className="mb-12">
+            {/* Category and Tags */}
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-md bg-brand/10 border border-brand/20 text-brand">
+                {post.category}
+              </span>
+              {post.tags.map((tag) => (
+                <span key={tag} className="px-2.5 py-1 text-xs font-medium rounded-md bg-secondary border border-border text-muted-foreground">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8 leading-[1.15] text-pretty">
               {post.title}
             </h1>
@@ -99,6 +112,53 @@ export function ClientBlogPost({ post }: ClientBlogPostProps) {
             className="blog-content-rendering relative [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-white [&>h2]:mt-16 [&>h2]:mb-8 [&>p]:text-lg [&>p]:text-muted-foreground [&>p]:leading-relaxed [&>p]:mb-8 [&>ul]:list-disc [&>ul]:pl-8 [&>ul]:mb-8 [&>li]:text-muted-foreground [&>li]:mb-2 [&>div]:my-16"
             dangerouslySetInnerHTML={{ __html: post.content }} 
           />
+
+          {/* Related Articles */}
+          {relatedPosts && relatedPosts.length > 0 && (
+            <section className="mt-24 pt-16 border-t border-border/50">
+              <h3 className="text-2xl font-bold text-white mb-10">Recommended Articles</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {relatedPosts.map((rPost) => (
+                  <article 
+                    key={rPost.slug}
+                    className="group flex flex-col bg-card/30 backdrop-blur-md border border-border/40 rounded-3xl overflow-hidden hover:border-brand/30 transition-all duration-300 shadow-xl"
+                  >
+                    <Link href={`/blog/${rPost.slug}`} className="relative h-48 overflow-hidden">
+                      <Image
+                        src={rPost.image}
+                        alt={rPost.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                    </Link>
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded bg-brand/10 border border-brand/20 text-brand">
+                          {rPost.category}
+                        </span>
+                        <span className="text-[10px] text-muted-foreground">{rPost.date}</span>
+                      </div>
+                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-brand transition-colors line-clamp-2">
+                        <Link href={`/blog/${rPost.slug}`}>
+                          {rPost.title}
+                        </Link>
+                      </h4>
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-4 flex-1">
+                        {rPost.description}
+                      </p>
+                      <Link 
+                        href={`/blog/${rPost.slug}`}
+                        className="inline-flex items-center gap-1.5 text-xs text-brand font-bold hover:gap-2 transition-all"
+                      >
+                        Read Article &rarr;
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Article Footer CTA */}
           <footer className="mt-24 pt-16 border-t border-border/50">

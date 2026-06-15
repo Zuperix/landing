@@ -104,7 +104,7 @@ const ROADMAP_ITEMS: RoadmapItem[] = [
   {
     id: "in-site-image",
     title: "In-Site Image Editor",
-    description: "Crop, resize, rotate, and enhance your photos directly inside Zuperix using lightweight open-source tools.",
+    description: "Crop, resize, rotate, and enhance your photos directly inside Zuperix using lightweight built-in tools.",
     category: "Core",
     icon: Sliders,
     status: "next-quarter"
@@ -130,7 +130,7 @@ const ROADMAP_ITEMS: RoadmapItem[] = [
   {
     id: "in-house-video",
     title: "In-House Video Editor",
-    description: "Trimming, cutting, and simple video processing directly in the browser utilizing lightweight open-source libraries.",
+    description: "Trimming, cutting, and simple video processing directly in the browser utilizing lightweight built-in libraries.",
     category: "Core",
     icon: Play,
     status: "next-to-next"

@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Zuperix Pricing – Flexible Plans for AI-Powered DAM',
-  description: 'Find the perfect plan for your digital asset management needs. From self-hosted open-source to fully managed AI-powered cloud plans.',
+  description: 'Find the perfect plan for your digital asset management needs. Choose from flexible AI-powered plans designed for growing teams.',
   openGraph: {
     title: 'Zuperix Pricing – Flexible Plans for AI-Powered DAM',
-    description: 'Find the perfect plan for your digital asset management needs. From self-hosted open-source to fully managed AI-powered cloud plans.',
+    description: 'Find the perfect plan for your digital asset management needs. Choose from flexible AI-powered plans designed for growing teams.',
     url: 'https://zuperix.com/pricing',
   },
   twitter: {
     title: 'Zuperix Pricing – Flexible Plans for AI-Powered DAM',
-    description: 'Find the perfect plan for your digital asset management needs. From self-hosted open-source to fully managed AI-powered cloud plans.',
+    description: 'Find the perfect plan for your digital asset management needs. Choose from flexible AI-powered plans designed for growing teams.',
   }
 }
 
@@ -30,18 +30,10 @@ export default function PricingLayout({
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is the GNU AGPL v3?",
+          "name": "Do you offer a free trial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The GNU Affero General Public License (AGPL) is a strong copyleft license. It ensures Zuperix is fully open source and any modifications made to the software for network use must be shared back with the community."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use Zuperix for free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Zuperix is free to download, modify, and self-host under the AGPLv3. Our Cloud plans are for those who want a managed, optimized experience without the ops overhead."
+            "text": "Yes, we offer a 14-day free trial on all plans so you can test all the AI-powered features."
           }
         },
         {

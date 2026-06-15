@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, Github } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -63,7 +63,7 @@ export function CtaSection() {
         </h2>
         
         <p className="text-muted-foreground text-lg sm:text-xl max-w-lg mx-auto mb-12 leading-relaxed text-pretty">
-          Deploy Zuperix in minutes. Open source, self-hostable, and built for teams of every size.
+          Get started with Zuperix in minutes. A modern AI-powered DAM built for teams of every size.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -73,22 +73,9 @@ export function CtaSection() {
               asChild
             >
               <Link href="http://dashboard.zuperix.com/">
-                Deploy Zuperix
+                Get Started Free
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
-            </Button>
-          </Magnetic>
-          <Magnetic intensity={0.2}>
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto gap-2 px-8 h-13 text-base hover:bg-accent/80 transition-all active:scale-95"
-              asChild
-            >
-              <a href="https://github.com/zuperix/zuperix" target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4" aria-hidden="true" />
-                View on GitHub
-              </a>
             </Button>
           </Magnetic>
         </div>
@@ -98,7 +85,7 @@ export function CtaSection() {
           {[
             "Most Affordable DAM",
             "No credit card required",
-            "GNU AGPL v3",
+            "Enterprise-grade Security",
             "99.9% uptime",
           ].map((badge, i) => (
             <motion.div 

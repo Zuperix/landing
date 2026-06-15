@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion"
 import { Magnetic } from "@/components/ui/magnetic-wrapper"
+import { CanvaLogo, LogoTwo, IncircleLogo } from "@/components/brand-logos"
 
 const SEARCH_PLACEHOLDERS = [
   "red car at night",
@@ -229,7 +230,7 @@ export function Hero() {
         {/* Stats row */}
         <motion.div
           variants={itemVariants}
-          className="relative flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-16 text-sm"
+          className="relative flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-12 text-sm"
         >
           {[
             { value: "1M+", label: "Assets indexed" },
@@ -241,6 +242,19 @@ export function Hero() {
               <span className="text-muted-foreground">{stat.label}</span>
             </div>
           ))}
+        </motion.div>
+
+        {/* Used by growing teams at */}
+        <motion.div
+          variants={itemVariants}
+          className="relative flex flex-col items-center gap-3 mb-16 text-[11px] text-muted-foreground/60 tracking-[0.2em] uppercase font-bold"
+        >
+          <span>Used by growing teams at</span>
+          <div className="flex items-center justify-center gap-12 opacity-40 hover:opacity-60 transition-opacity">
+            <CanvaLogo className="h-[20px] w-auto fill-current text-foreground" />
+            <LogoTwo className="h-[52px] w-auto fill-current text-foreground" />
+            <IncircleLogo className="h-[26px] w-auto fill-current text-foreground" />
+          </div>
         </motion.div>
       </motion.div>
 

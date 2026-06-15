@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Github, Twitter, MessageCircle } from "lucide-react"
+import { Twitter, MessageCircle } from "lucide-react"
 import { useAnimateInView } from "@/hooks/use-animate-in-view"
 import { cn } from "@/lib/utils"
 
@@ -27,7 +27,6 @@ const footerLinks: FooterLinkGroup[] = [
     links: [
       { label: "Documentation", href: "https://docs.zuperix.com/" },
       { label: "Community", href: "#" },
-      { label: "GitHub", href: "https://github.com/zuperix/zuperix" },
       { label: "Roadmap", href: "/roadmap" },
     ],
   },
@@ -43,7 +42,6 @@ const footerLinks: FooterLinkGroup[] = [
 ]
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/zuperix/zuperix", label: "GitHub" },
   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
   { icon: MessageCircle, href: "https://discord.gg", label: "Discord" },
 ]
@@ -158,7 +156,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Zuperix. Open source under the GNU AGPL v3.
+            © {new Date().getFullYear()} Zuperix. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link

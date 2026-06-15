@@ -9,8 +9,8 @@ import Link from "next/link"
 const PRINCIPLES = [
   {
     icon: Code2,
-    title: "Open Source First",
-    description: "Built under the GNU AGPL v3 license. We believe critical creative infrastructure should be transparent, auditable, and free from vendor lock-in.",
+    title: "Security First",
+    description: "Built with enterprise-grade security protocols. We believe critical creative infrastructure should be secure, reliable, and lightning-fast.",
   },
   {
     icon: Sparkles,
@@ -20,7 +20,7 @@ const PRINCIPLES = [
   {
     icon: Shield,
     title: "Total Privacy & Control",
-    description: "Self-host on your own infrastructure or cloud. Your assets, metadata, and user activity stay completely under your control, secure and confidential.",
+    description: "Secure hosting on optimized cloud infrastructure. Your assets, metadata, and user activity stay completely confidential, protected, and isolated.",
   },
   {
     icon: Cpu,
@@ -30,10 +30,10 @@ const PRINCIPLES = [
 ]
 
 const STATS = [
-  { value: "100%", label: "Open Source" },
+  { value: "99.9%", label: "Uptime SLA" },
   { value: "10x", label: "Faster Asset Discovery" },
   { value: "Zero", label: "Manual Tagging Required" },
-  { value: "Unlimited", label: "Self-Hosted Control" },
+  { value: "Unlimited", label: "Users Included" },
 ]
 
 export default function AboutPage() {
@@ -73,7 +73,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10"
           >
-            Zuperix is the open-source, AI-native alternative to complex, expensive enterprise DAMs. We build tools that help creative teams catalog, find, and distribute media effortlessly.
+            Zuperix is the AI-native alternative to complex, expensive enterprise DAMs. We build tools that help creative teams catalog, find, and distribute media effortlessly.
           </motion.p>
 
           {/* Stats Grid */}
@@ -107,10 +107,10 @@ export default function AboutPage() {
                   Managing a growing library of media assets has historically been a painful chore. Legacy tools require manual tagging, suffer from terrible search capabilities, and come with prohibitive licensing fees that lock creative teams into proprietary ecosystems.
                 </p>
                 <p>
-                  We created **Zuperix** to solve this. By combining local, self-hosted and cloud-scalable storage with modern open-source AI models, we made it possible to search media using natural, human language—the exact same way you think.
+                  We created **Zuperix** to solve this. By combining cloud-scalable storage with modern AI models, we made it possible to search media using natural, human language—the exact same way you think.
                 </p>
                 <p>
-                  Our mission is to democratize high-end creative tooling. We believe every team, from independent creators to global agencies, deserves beautiful, powerful, and private software to manage their digital assets.
+                  Our mission is to democratize high-end creative tooling. We believe every team, from independent creators to global agencies, deserves beautiful, powerful, and secure software to manage their digital assets.
                 </p>
               </div>
             </div>
@@ -120,21 +120,20 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-grid-line opacity-10 pointer-events-none" />
                 <div className="flex justify-between items-start">
                   <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
-                    <Heart className="w-5 h-5 fill-brand/20" />
+                    <Sparkles className="w-5 h-5 fill-brand/20" />
                   </div>
-                  <span className="text-xs font-mono text-muted-foreground">AGPL v3 License</span>
+                  <span className="text-xs font-mono text-muted-foreground">AI Powered</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">100% Free & Open Source</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">100% Automatic Tagging</h3>
                   <p className="text-xs text-muted-foreground leading-normal mb-4">
-                    Deploy locally or in the cloud. Star us on GitHub and join our community of developers and designers.
+                    Get video transcribing, text extraction from images with OCR, and auto-tagging out of the box.
                   </p>
                   <Link 
-                    href="https://github.com/zuperix/zuperix" 
-                    target="_blank"
+                    href="http://dashboard.zuperix.com/" 
                     className="inline-flex items-center gap-1 text-xs font-semibold text-brand hover:text-brand-dim transition-colors group-hover:translate-x-1 duration-200"
                   >
-                    View Repository <ArrowUpRight className="w-3.5 h-3.5" />
+                    Start Free Trial <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
@@ -181,25 +180,17 @@ export default function AboutPage() {
           <div className="relative rounded-3xl border border-brand/20 bg-gradient-to-br from-brand/5 via-transparent to-violet-500/5 p-8 sm:p-12 text-center overflow-hidden">
             <div className="absolute inset-0 bg-grid-line opacity-10 pointer-events-none" />
             
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">Join the Zuperix Community</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">Start managing your assets today</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto mb-8 leading-relaxed">
-              Whether you are a developer looking to contribute, self-host, or a creator looking to organize your assets, we would love to have you.
+              Scale your team's workflow with automated transcription, similarity search, and high-speed delivery.
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                href="https://github.com/zuperix/zuperix" 
-                target="_blank"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-colors gap-2"
-              >
-                <Code2 className="w-4 h-4" />
-                Star on GitHub
-              </Link>
+            <div className="flex justify-center">
               <Link 
                 href="http://dashboard.zuperix.com/" 
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-border bg-card/80 hover:bg-accent font-semibold text-sm transition-all gap-1.5"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-brand text-white font-semibold text-sm hover:bg-brand-dim transition-colors gap-2"
               >
-                Deploy Now
+                Get Started Free
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>

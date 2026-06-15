@@ -36,12 +36,12 @@ export default function Page() {
     "name": "Zuperix",
     "operatingSystem": "All",
     "applicationCategory": "BusinessApplication",
-    "description": "Search, tag, and manage images, videos, and files using AI-powered natural language. Fully open-source DAM platform.",
+    "description": "Search, tag, and manage images, videos, and files using AI-powered natural language. AI-powered DAM platform.",
     "offers": {
       "@type": "Offer",
-      "price": "0",
+      "price": "10",
       "priceCurrency": "USD",
-      "description": "Free open-source self-hosted version available."
+      "description": "Bronze plan starting from $10/month."
     }
   };
 

@@ -10,8 +10,8 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jet
 export const metadata: Metadata = {
   metadataBase: new URL('https://zuperix.com'),
   title: 'Zuperix – AI-Powered Digital Asset Management',
-  description: 'Search, tag, and manage images, videos, and files using AI-powered natural language. Fully open-source DAM platform under the GNU AGPL v3.',
-  keywords: ['digital asset management', 'DAM', 'AI', 'open source', 'AGPL', 'self-hosted', 'asset management', 'image tagging', 'OCR', 'face recognition', 'natural language search'],
+  description: 'Search, tag, and manage images, videos, and files using AI-powered natural language. Modern DAM platform built for creative teams.',
+  keywords: ['digital asset management', 'DAM', 'AI', 'asset management', 'image tagging', 'OCR', 'face recognition', 'natural language search'],
   authors: [{ name: 'Zuperix Team' }],
   icons: {
     icon: [
@@ -67,9 +67,7 @@ export default function RootLayout({
     "name": "Zuperix",
     "url": "https://zuperix.com",
     "logo": "https://zuperix.com/logo_transparant.png",
-    "sameAs": [
-      "https://github.com/zuperix/zuperix"
-    ]
+    "sameAs": []
   }
 
   return (

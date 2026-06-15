@@ -6,6 +6,9 @@ export interface BlogPost {
   author: string;
   image: string;
   content: string;
+  category: string;
+  tags: string[];
+  relatedSlugs?: string[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -16,6 +19,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "May 18, 2026",
     author: "Zuperix Team",
     image: "/blog/affordable-dam-solutions.png",
+    category: "Guides",
+    tags: ["DAM", "SMB", "Comparison", "Budget"],
+    relatedSlugs: ["why-your-business-needs-a-dam-system", "why-teams-are-switching-from-enterprise-dams"],
     content: `
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Digital Asset Management (DAM) software centralizes an organization’s images, videos, documents, and other media in a searchable, secure library. For small-to-medium businesses (SMBs), legacy enterprise DAM platforms are often prohibitively expensive. Fortunately, a new wave of affordable DAM solutions caters to scaling teams by offering unlimited users, simple pricing based on storage rather than seat counts, and vital features like metadata tagging, versioning, and secure public sharing.</p>
 
@@ -41,7 +47,7 @@ export const BLOG_POSTS: BlogPost[] = [
               <td class="p-4 leading-relaxed">Free: 500 GB; then $99/TB (1 TB), $499 (5 TB)</td>
               <td class="p-4 leading-relaxed">$29 (20 GB) – $89 (100 GB)</td>
               <td class="p-4 leading-relaxed">Free: ~20 GB; Paid: ~$25/mo up to $1,100/mo</td>
-              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">$8 (50 GB), $20 (500 GB), $82 (2 TB)</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">$8 (Bronze), $20 (Silver), $82 (Gold)</td>
             </tr>
             <tr>
               <td class="p-4 font-bold text-white bg-white/[0.01]">Storage (included)</td>
@@ -111,7 +117,7 @@ export const BLOG_POSTS: BlogPost[] = [
               <td class="p-4 leading-relaxed">AES-256, SOC2 Type II, SSO/SAML</td>
               <td class="p-4 leading-relaxed">SSL/TLS, ISO 27001 infra</td>
               <td class="p-4 leading-relaxed">SOC 2 Type II; data encrypted</td>
-              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">99.9% uptime SLA (cloud); self-host gives full control (AGPL open-source)</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">99.9% uptime SLA with fully managed cloud security</td>
             </tr>
             <tr>
               <td class="p-4 font-bold text-white bg-white/[0.01]">Support</td>
@@ -125,7 +131,7 @@ export const BLOG_POSTS: BlogPost[] = [
               <td class="p-4 leading-relaxed">Custom domains, XMP metadata, ALT tags</td>
               <td class="p-4 leading-relaxed">Custom domain (Pro), auto-tags, image AI</td>
               <td class="p-4 leading-relaxed">No explicit SEO tools</td>
-              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Advanced metadata (OCR-text), open self-hosting control</td>
+              <td class="p-4 font-semibold text-brand bg-brand/[0.02]">Advanced metadata (OCR-text), semantic auto-tagging</td>
             </tr>
           </tbody>
         </table>
@@ -146,10 +152,10 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Air provides a beautifully designed boards system resembling a visual grid, comments and markups on assets, an interactive AI Workspace named "Canvas" for generating assets, and direct integrations with popular tools like Figma, Slack, Dropbox, and Shopify. Air is SOC 2 Type II certified. <strong>Pros:</strong> A gorgeous, state-of-the-art UI, high-end collaborative review tools, and intelligent tagging (searching by people, facial profiles, and key objects). <strong>Cons:</strong> Credit-based consumption can be difficult to predict, and the platform gets expensive rapidly as storage requirements grow—several users have reported that the price curves represent a significant steep cost for small startups.</p>
 
-      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Zuperix (Open-Source AI DAM)</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix is a cutting-edge, AI-native DAM platform designed to offer enterprise-grade capabilities at startup pricing. Available as both a cloud-managed SaaS and a free open-source (self-hosted AGPL v3) project, Zuperix is built for velocity. The cloud tiers start at $8/month for 50 GB (Bronze), $20/month for 500 GB (Silver), and $82/month for 2 TB (Gold). Every single plan includes unlimited users, duplicate file detection, advanced workflow triggers, and customizable public sharing portals.</p>
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Zuperix (AI-Powered Cloud DAM)</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix is a cutting-edge, AI-native DAM platform designed to offer enterprise-grade capabilities at startup pricing. As a fully cloud-managed SaaS, Zuperix is built for velocity. The cloud tiers start at $8/month for 50 GB (Bronze), $20/month for 500 GB (Silver), and $82/month for 2 TB (Gold). Every single plan includes unlimited users, duplicate file detection, advanced workflow triggers, and customizable public sharing portals.</p>
 
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">The core advantage of Zuperix lies in its deep AI integration. When files are uploaded, Zuperix instantly triggers natural-language semantic tagging, face detection, full Optical Character Recognition (OCR) to extract text from images and PDF documents, and automated video/audio transcribing. This allows team members to discover assets using conversational search phrases (like <em>“find high-res vectors of skylines at sunset”</em>) rather than relying on perfect manual tag compliance. The system is extremely secure and provides cloud-level SLA guarantees of 99.9% uptime. <strong>Pros:</strong> Powerful AI intelligence (OCR, face recognition, semantic search) available at a fraction of competitors' costs, zero user seat fees, and complete data ownership with a self-hosted option. <strong>Cons:</strong> As a rapidly growing modern solution, it has a smaller footprint of legacy integrations compared to decades-old providers (though its REST API and Zapier integration bridge this gap easily).</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">The core advantage of Zuperix lies in its deep AI integration. When files are uploaded, Zuperix instantly triggers natural-language semantic tagging, face detection, full Optical Character Recognition (OCR) to extract text from images and PDF documents, and automated video/audio transcribing. This allows team members to discover assets using conversational search phrases (like <em>“find high-res vectors of skylines at sunset”</em>) rather than relying on perfect manual tag compliance. The system is extremely secure and provides cloud-level SLA guarantees of 99.9% uptime. <strong>Pros:</strong> Powerful AI intelligence (OCR, face recognition, semantic search) available at a fraction of competitors' costs, zero user seat fees, and complete data security. <strong>Cons:</strong> As a rapidly growing modern solution, it has a smaller footprint of legacy integrations compared to decades-old providers (though its REST API and Zapier integration bridge this gap easily).</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Why Zuperix Stands Out (Best Affordable Choice)</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">For businesses aiming to scale their creative assets while maintaining an efficient budget, Zuperix is the clear winner for several reasons:</p>
@@ -158,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li><strong class="text-white">Exceptional Cost Value:</strong> Zuperix's cloud plans are 3x to 4x cheaper than Razuna or Air for identical storage. A mid-sized library of 500 GB costs only $20/month on Zuperix, compared to $59/month on Filecamp or ~$99/month on Razuna. The Bronze tier ($8/mo) provides a highly functional AI entry point that undercuts Canto, Air, and other competitors.</li>
         <li><strong class="text-white">AI-Powered SEO Benefits:</strong> Zuperix leverages native AI to automatically enrich every single asset. OCR-extracted text and AI-tagged labels are saved directly to the asset's metadata record. When assets are embedded in your CMS via Zuperix’s CDN or API, this rich metadata is readily accessible to automate alt-text, descriptions, and captions. Additionally, public sharing portals are sitemap-optimized and crawlable by search engines, unlike generic siloed file links.</li>
         <li><strong class="text-white">Deep Feature Integrity:</strong> Zuperix doesn't lock vital security or organization features behind expensive tiers. Even Bronze users get robust access logs, duplicate asset filters, global CDN delivery, and full-text document search.</li>
-        <li><strong class="text-white">Self-Hosted Sovereignty:</strong> Because Zuperix's core is open-source (GNU AGPL v3), companies with engineering resources can host Zuperix locally. This eliminates hosting bills entirely, ensures total privacy, and allows technical teams to configure sitemaps, canonical tags, and routing at the server level.</li>
+        <li><strong class="text-white">Seamless Integrations:</strong> Zuperix integrates directly with Google Drive, Canva, and Adobe Express, allowing teams to sync files automatically and design without interrupting their workflow.</li>
       </ul>
 
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Ultimately, Zuperix democratizes digital asset management. It eliminates the clunky, labor-intensive manual tagging of the past and replaces it with an intelligent, highly automated, and affordable platform that empowers teams to spend less time organizing and more time creating.</p>
@@ -205,6 +211,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "March 31, 2026",
     author: "Zuperix Team",
     image: "/blog-dam-comparison.svg",
+    category: "Comparisons",
+    tags: ["Bynder", "Cloudinary", "Zuperix", "DAM"],
+    relatedSlugs: ["affordable-dam-solutions-2026", "why-teams-are-switching-from-enterprise-dams"],
     content: `
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">The DAM Market Has a Pricing Problem</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Let's be honest: the Digital Asset Management industry has long been dominated by platforms that charge anywhere from $500 to $5,000+ per month. For growing teams, agencies, and startups, these prices are simply out of reach. But does paying more actually mean getting more? We put Zuperix head-to-head with industry giants Bynder and Cloudinary to find out.</p>
@@ -239,11 +248,11 @@ export const BLOG_POSTS: BlogPost[] = [
       </div>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Feature-by-Feature Breakdown</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">AI-powered search? Zuperix has it on Gold. Brand portals? Available on all plans. Self-hosting option? Only Zuperix offers true data sovereignty with zero vendor lock-in. While Bynder and Cloudinary excel in their niches, neither offers the combination of affordability, AI intelligence, and flexibility that Zuperix delivers.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">AI-powered search? Zuperix has it on Gold. Brand portals? Available on all plans. Unlimited users? Included on all tiers. While Bynder and Cloudinary excel in their niches, neither offers the combination of affordability, AI intelligence, and flexibility that Zuperix delivers.</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">The Verdict</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">If you're a Fortune 500 company with unlimited budget, Bynder is a safe choice. If you need programmatic image transformations at scale, Cloudinary is purpose-built. But if you're a growing team that needs real DAM capabilities—AI search, brand management, secure sharing—without the enterprise price tag, Zuperix is the clear winner.</p>
-    `,
+    `
   },
   {
     slug: "why-teams-are-switching-from-enterprise-dams",
@@ -252,6 +261,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "March 29, 2026",
     author: "Zuperix Team",
     image: "/blog-switching-dams.svg",
+    category: "Industry",
+    tags: ["Enterprise", "Canto", "Brandfolder", "Migration"],
+    relatedSlugs: ["zuperix-vs-bynder-cloudinary-dam-comparison", "most-affordable-ai-powered-dam-for-modern-teams"],
     content: `
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">The Great DAM Migration</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Something interesting is happening in the digital asset management space. Teams that once signed multi-year contracts with legacy DAM providers are quietly looking for alternatives. The reasons? Bloated pricing, outdated interfaces, and AI features that feel bolted on rather than native. We're seeing a migration toward leaner, smarter solutions—and Zuperix is leading the charge.</p>
@@ -268,7 +280,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Many established DAMs were built in the pre-AI era. Their search relies on manual tagging—meaning someone on your team has to meticulously label every asset. Their interfaces were designed for desktop-first workflows in 2015. And their "AI features" are often third-party add-ons with separate pricing. In 2026, this approach feels antiquated.</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">What Modern Teams Actually Need</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Today's creative and marketing teams need speed above all else. They need to find assets in seconds, not minutes. They need to onboard new team members without week-long training sessions. They need pricing that scales with their success, not against it. And increasingly, they need the option to self-host for compliance and data sovereignty.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Today's creative and marketing teams need speed above all else. They need to find assets in seconds, not minutes. They need to onboard new team members without week-long training sessions. They need pricing that scales with their success, not against it. And increasingly, they need robust security compliance and data protection.</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
         <div class="p-6 bg-secondary rounded-2xl border border-border">
@@ -278,7 +290,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>• Manual tagging required for search</li>
             <li>• Lengthy implementation timelines</li>
             <li>• AI features as expensive add-ons</li>
-            <li>• Vendor lock-in with no self-host option</li>
+            <li>• High user seat fees that restrict collaboration</li>
           </ul>
         </div>
         <div class="p-6 bg-secondary rounded-2xl border border-border">
@@ -288,7 +300,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>• AI-powered semantic search built-in</li>
             <li>• Start in minutes, not weeks</li>
             <li>• OCR and facial recognition included</li>
-            <li>• Full self-hosting available</li>
+            <li>• Unlimited users on all plans</li>
           </ul>
         </div>
       </div>
@@ -298,7 +310,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Ready to Make the Switch?</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Migration doesn't have to be painful. Zuperix supports bulk imports and offers dedicated migration assistance for teams coming from other platforms. Your assets, your metadata, your workflows—all preserved. Start your free trial today and see why teams are choosing modern over legacy.</p>
-    `,
+    `
   },
   {
     slug: "why-your-business-needs-a-dam-system",
@@ -307,6 +319,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "April 1, 2026",
     author: "Zuperix Team",
     image: "/blog-why-dam.png",
+    category: "Guides",
+    tags: ["DAM", "AI Search", "Productivity", "Centralization"],
+    relatedSlugs: ["why-teams-are-switching-from-enterprise-dams", "zero-copy-dam-google-drive-integration"],
     content: `
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Drowning in files? You are not alone.</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">In the modern digital landscape, the volume of assets is exploding. Marketing teams, designers, and developers are constantly switching between Slack, Cloud Storage, and Email just to find an approved logo. This fragmentation creates a massive "search tax" that drains your most valuable resource: time.</p>
@@ -323,7 +338,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Security and Scale</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Asset management is also about governance. Zuperix provides granular permissions and secure portals. Share exactly what is needed with stakeholders without exposing your entire library. Built for performance, Zuperix handles libraries of all sizes with the same uncompromising speed.</p>
-    `,
+    `
   },
   {
     slug: "most-affordable-ai-powered-dam-for-modern-teams",
@@ -332,6 +347,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "March 28, 2026",
     author: "Zuperix Team",
     image: "/blog-affordable-ai-dam.png",
+    category: "Product",
+    tags: ["AI DAM", "SaaS", "Cloud", "Pricing"],
+    relatedSlugs: ["why-your-business-needs-a-dam-system", "zuperix-vs-bynder-cloudinary-dam-comparison"],
     content: `
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Enterprise Power. Accessible Pricing.</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">For years, high-performance DAM systems were locked behind heavy five-figure contracts. Scaling teams were forced to settle for basic cloud storage or clunky, outdated software. Zuperix was built to disrupt this cycle. We deliver elite AI capabilities at a price point that makes sense for teams that are just starting to scale.</p>
@@ -345,8 +363,8 @@ export const BLOG_POSTS: BlogPost[] = [
           <p class="text-muted-foreground">Focus on your work while we handle the infrastructure, security, and updates in our managed environment.</p>
         </div>
         <div class="p-6 bg-secondary rounded-2xl border border-border">
-          <h3 class="text-xl font-bold text-white mb-2">Self Hosted</h3>
-          <p class="text-muted-foreground">Deploy Zuperix on your own servers for ultimate privacy and data sovereignty. Zero vendor lock-in, ever.</p>
+          <h3 class="text-xl font-bold text-white mb-2">Enterprise Ready</h3>
+          <p class="text-muted-foreground">Granular permissions, secure sharing portals, and API keys to integrate with your existing technology stack.</p>
         </div>
       </div>
 
@@ -355,7 +373,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Growth Without Friction</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix scales as you do. Whether you are managing ten assets or ten thousand, our pricing stays predictable. No surprise fees for storage spikes or extra users. It's time to move beyond storage and start truly managing your digital future with the industry's most value-driven AI DAM.</p>
-    `,
+    `
   },
   {
     slug: "zero-copy-dam-google-drive-integration",
@@ -364,6 +382,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "April 25, 2026",
     author: "Zuperix Team",
     image: "/blog/google-drive-hero.png",
+    category: "Integrations",
+    tags: ["Google Drive", "Cloud Storage", "Zero-Copy", "Workflows"],
+    relatedSlugs: ["why-your-business-needs-a-dam-system", "most-affordable-ai-powered-dam-for-modern-teams"],
     content: `
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">The Problem with Traditional Cloud Storage Migration</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">For years, adoption of a <strong>Digital Asset Management (DAM)</strong> system meant a painful choice: duplicate your entire cloud library or perform a massive, one-way migration. For teams with terabytes of data in Google Drive, neither option was viable. This "migration friction" has kept many organizations stuck in basic cloud folders, missing out on the <strong>AI-powered discovery</strong> and governance of a true DAM.</p>
@@ -389,7 +410,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Conclusion: Unified Cloud Discovery</h2>
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">By eliminating the storage and bandwidth overhead of traditional migration, Zuperix makes high-end <strong>digital asset management</strong> accessible to teams that were previously priced out. It's about unifying your fragmented cloud storage into a single, AI-powered source of truth without changing how you store your files.</p>
-    `,
+    `
   },
   {
     slug: "future-of-consumer-centric-digital-asset-management-zuperix-vs-dash",
@@ -398,6 +419,9 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "May 30, 2026",
     author: "Zuperix Team",
     image: "/blog/zupdash.png",
+    category: "Comparisons",
+    tags: ["Dash", "Comparison", "Open-Source", "AI Search"],
+    relatedSlugs: ["affordable-dam-solutions-2026", "zuperix-vs-bynder-cloudinary-dam-comparison"],
     content: `
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">If you are a content creator, marketing agency, or a growing brand, you know the pain of "content chaos." Your Google Drive is a mess, and finding that one specific image labeled "IMG822_v36_FINAL.jpg" feels impossible.</p>
 
@@ -432,180 +456,23 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix fundamentally rejects this restrictive model. Built to be highly affordable for everyday consumers, Zuperix encourages fluid, high-velocity usage without punishing you for downloading your own assets. It completely removes financial barriers to entry, offering an incredibly generous free tier with 2,000 requests that can be refilled, allowing you to thoroughly test the platform without a credit card.</p>
 
-      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Open Source: True Ownership of Your Assets</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">The biggest hidden risk of traditional SaaS platforms like Dash is vendor lock-in. Because Dash is a closed-source, proprietary system, you don't truly own your infrastructure. If they raise prices or change features, you have no choice but to accept it.</p>
+      <h2 class="text-3xl font-bold text-white mt-12 mb-6">Cloud Security: True Isolation of Your Assets</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">The biggest hidden risk of traditional SaaS platforms is basic, shared database isolation. Because other tools group all consumer data together, security leaks can expose your private assets.</p>
 
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix is proudly open-source. For the everyday consumer, this means absolute data sovereignty and peace of mind. Because the core software is open, you have the option to self-host the application on your own servers if you choose. You own your data forever, making your workflow completely immune to sudden corporate price hikes or platform shutdowns.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">Zuperix is built with isolated asset security. For the everyday consumer, this means absolute data sovereignty and peace of mind. Your assets are stored in secure, encrypted environments with automated daily backups. You own your data forever, making your workflow completely secure and immune to database leaks.</p>
 
       <h2 class="text-3xl font-bold text-white mt-12 mb-6">Final Verdict</h2>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-8">While Dash is a solid, structured tool for niche e-commerce operations, it comes with rigid download limits and a closed-source architecture that restricts true operational freedom.</p>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-8">While Dash is a solid, structured tool for niche e-commerce operations, it comes with rigid download limits and lack of modern AI capabilities.</p>
 
-      <p class="text-xl font-bold text-brand mt-8 leading-relaxed">For consumers, content creators, and modern brands looking for a next-generation solution, Zuperix is the clear winner. By combining state-of-the-art AI search, seamless integrations into WordPress and Canva, disruptive affordability, and the ultimate freedom of open-source software, Zuperix delivers a remarkably superior, future-proof asset management experience.</p>
+      <p class="text-xl font-bold text-brand mt-8 leading-relaxed">For consumers, content creators, and modern brands looking for a next-generation solution, Zuperix is the clear winner. By combining state-of-the-art AI search, seamless integrations into WordPress and Canva, disruptive affordability, and the ultimate reliability of cloud-native architecture, Zuperix delivers a remarkably superior, future-proof asset management experience.</p>
     `
   }
 ];
 
-const STORYBLOK_TOKEN = process.env.NEXT_PUBLIC_STORYBLOK_TOKEN;
-
-export function renderRichText(node: any): string {
-  if (!node) return "";
-  if (typeof node === "string") return node;
-  
-  if (Array.isArray(node)) {
-    return node.map(renderRichText).join("");
-  }
-  
-  if (node.type === "doc") {
-    return renderRichText(node.content);
-  }
-  
-  if (node.type === "paragraph") {
-    return `<p class="text-lg text-muted-foreground leading-relaxed mb-8">${renderRichText(node.content)}</p>`;
-  }
-  
-  if (node.type === "heading") {
-    const level = node.attrs?.level || 2;
-    if (level === 1) {
-      return `<h1 class="text-4xl font-bold text-white mt-12 mb-6">${renderRichText(node.content)}</h1>`;
-    } else if (level === 2) {
-      return `<h2 class="text-3xl font-bold text-white mt-12 mb-6">${renderRichText(node.content)}</h2>`;
-    } else {
-      return `<h3 class="text-2xl font-bold text-white mt-10 mb-4">${renderRichText(node.content)}</h3>`;
-    }
-  }
-
-  if (node.type === "text") {
-    let text = node.text || "";
-    if (node.marks) {
-      for (const mark of node.marks) {
-        if (mark.type === "bold") {
-          text = `<strong class="text-white">${text}</strong>`;
-        }
-        if (mark.type === "italic") {
-          text = `<em>${text}</em>`;
-        }
-        if (mark.type === "link") {
-          const href = mark.attrs?.href || "#";
-          const target = mark.attrs?.target ? ` target="${mark.attrs.target}"` : "";
-          text = `<a href="${href}"${target} class="text-brand hover:underline font-semibold">${text}</a>`;
-        }
-      }
-    }
-    return text;
-  }
-  
-  if (node.type === "bullet_list") {
-    return `<ul class="text-muted-foreground space-y-4 my-8 text-lg list-disc pl-6">${renderRichText(node.content)}</ul>`;
-  }
-  
-  if (node.type === "ordered_list") {
-    return `<ol class="text-muted-foreground space-y-4 my-8 text-lg list-decimal pl-6">${renderRichText(node.content)}</ol>`;
-  }
-  
-  if (node.type === "list_item") {
-    return `<li>${renderRichText(node.content)}</li>`;
-  }
-
-  if (node.type === "blockquote") {
-    return `<div class="bg-brand/5 border-l-4 border-brand p-8 my-12 rounded-r-2xl"><p class="text-xl font-medium text-white italic">${renderRichText(node.content)}</p></div>`;
-  }
-
-  if (node.type === "code_block") {
-    return `<pre class="bg-secondary p-4 rounded-xl overflow-x-auto my-6 font-mono text-sm"><code>${renderRichText(node.content)}</code></pre>`;
-  }
-
-  if (node.type === "horizontal_rule") {
-    return `<hr class="border-border/40 my-12" />`;
-  }
-
-  if (node.content) {
-    return renderRichText(node.content);
-  }
-  
-  return "";
-}
-
-function parseImage(img: any): string {
-  if (!img) return "/blog-why-dam.png";
-  if (typeof img === "string") return img;
-  if (img.filename) return img.filename;
-  return "/blog-why-dam.png";
-}
-
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  if (!STORYBLOK_TOKEN) {
-    console.log("No STORYBLOK_TOKEN provided, falling back to local blog posts");
-    return BLOG_POSTS;
-  }
-
-  try {
-    const res = await fetch(
-      `https://api.storyblok.com/v2/cdn/stories?token=${STORYBLOK_TOKEN}&starts_with=blog/&version=published`,
-      { next: { revalidate: 3600 } }
-    );
-    if (!res.ok) {
-      throw new Error(`Failed to fetch from Storyblok: ${res.status}`);
-    }
-    const data = await res.json();
-    if (!data.stories || data.stories.length === 0) {
-      return BLOG_POSTS;
-    }
-    return data.stories.map((story: any) => {
-      const c = story.content;
-      return {
-        slug: story.slug || story.full_slug.replace("blog/", ""),
-        title: c.title || story.name,
-        description: c.description || "",
-        date: c.date || new Date(story.first_published_at || story.created_at).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }),
-        author: c.author || "Zuperix Team",
-        image: parseImage(c.image),
-        content: renderRichText(c.content),
-      };
-    });
-  } catch (error) {
-    console.error("Error fetching stories from Storyblok, falling back:", error);
-    return BLOG_POSTS;
-  }
+  return BLOG_POSTS;
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
-  if (!STORYBLOK_TOKEN) {
-    console.log("No STORYBLOK_TOKEN provided, falling back to local post");
-    return BLOG_POSTS.find((p) => p.slug === slug);
-  }
-
-  try {
-    const res = await fetch(
-      `https://api.storyblok.com/v2/cdn/stories/blog/${slug}?token=${STORYBLOK_TOKEN}&version=published`,
-      { next: { revalidate: 3600 } }
-    );
-    if (!res.ok) {
-      const localPost = BLOG_POSTS.find((p) => p.slug === slug);
-      if (localPost) return localPost;
-      throw new Error(`Failed to fetch story ${slug}: ${res.status}`);
-    }
-    const data = await res.json();
-    const story = data.story;
-    const c = story.content;
-    return {
-      slug: story.slug,
-      title: c.title || story.name,
-      description: c.description || "",
-      date: c.date || new Date(story.first_published_at || story.created_at).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }),
-      author: c.author || "Zuperix Team",
-      image: parseImage(c.image),
-      content: renderRichText(c.content),
-    };
-  } catch (error) {
-    console.error(`Error fetching story by slug ${slug} from Storyblok, falling back:`, error);
-    return BLOG_POSTS.find((p) => p.slug === slug);
-  }
+  return BLOG_POSTS.find((p) => p.slug === slug);
 }

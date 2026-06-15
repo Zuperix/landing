@@ -49,7 +49,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound()
 
   const allPosts = await getBlogPosts()
-  const relatedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 2)
+  const relatedPosts = post.relatedSlugs
+    ? allPosts.filter((p) => post.relatedSlugs!.includes(p.slug))
+    : allPosts.filter((p) => p.slug !== slug).slice(0, 2)
 
   const jsonLd = {
     "@context": "https://schema.org",
