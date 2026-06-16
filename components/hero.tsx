@@ -144,8 +144,8 @@ export function Hero() {
         >
           <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Ask with AI:</span>
           <div className="flex items-center gap-4">
-            <Link 
-              href="https://chatgpt.com/?q=What+is+Zuperix+DAM+and+how+does+it+help+teams+organize+assets+better+than+traditional+folder+structures?" 
+            <Link
+              href="https://chatgpt.com/?q=What+is+Zuperix+DAM+and+how+does+it+help+teams+organize+assets+better+than+traditional+folder+structures?"
               target="_blank"
               className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity"
             >
@@ -161,7 +161,7 @@ export function Hero() {
           id="hero-heading"
           className="relative text-balance text-center font-bold tracking-tight leading-[1.08] text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground max-w-4xl mb-6"
         >
-          The DAM Built for AI Workflows{" "}
+          The Digital Asset Platform for the AI Era{" "}
           <span className="bg-gradient-to-r from-brand to-[oklch(0.65_0.25_280)] bg-clip-text text-transparent">
           </span>
         </motion.h1>
