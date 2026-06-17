@@ -26,8 +26,9 @@ const footerLinks: FooterLinkGroup[] = [
     heading: "Resources",
     links: [
       { label: "Documentation", href: "https://docs.zuperix.com/" },
-      { label: "Community", href: "#" },
+      { label: "Free Tools", href: "/tools" },
       { label: "Roadmap", href: "/roadmap" },
+      { label: "Community", href: "#" },
     ],
   },
   {
