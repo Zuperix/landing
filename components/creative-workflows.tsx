@@ -1,6 +1,6 @@
 "use client"
 
-import { Share2, Sparkles, Layout, ShieldCheck, LucideIcon } from "lucide-react"
+import { Share2, Cpu, Layout, ShieldCheck, LucideIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
@@ -19,7 +19,7 @@ const pillars: Pillar[] = [
     pill: "Public Portals",
   },
   {
-    icon: Sparkles,
+    icon: Cpu,
     title: "AI-Powered Discovery",
     description: "Find exactly what you need with natural language search, facial recognition, and visual similarity matches.",
     pill: "Smart Search",

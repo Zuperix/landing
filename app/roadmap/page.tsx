@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Calendar, Search, Shield, Zap, Sparkles, Sliders, Play, Share2, Layers, Database, Paintbrush, Code2, Eye, BarChart3, EyeOff } from "lucide-react"
+import { Calendar, Search, Shield, Zap, Sliders, Play, Share2, Layers, Database, Paintbrush, Code2, Eye, BarChart3, EyeOff } from "lucide-react"
 
 interface RoadmapItem {
   id: string
@@ -80,7 +80,7 @@ const ROADMAP_ITEMS: RoadmapItem[] = [
     title: "Figma & Shopify Integration",
     description: "Direct sync connections to pull assets into your Figma designs or publish product images directly to Shopify.",
     category: "Integration",
-    icon: Sparkles,
+    icon: Zap,
     status: "this-quarter"
   },
   {

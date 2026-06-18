@@ -18,7 +18,6 @@ import {
   Check,
   Upload,
   Layers,
-  Sparkles,
   Info
 } from "lucide-react"
 
@@ -63,11 +62,32 @@ function SvgOptimizer() {
 
     try {
       const parser = new DOMParser()
-      const doc = parser.parseFromString(rawSvg, "image/svg+xml")
+      let doc: Document | null = null
 
-      // Check for parsing error elements
-      const parserError = doc.querySelector("parsererror")
-      if (parserError) {
+      // Clean up namespaced attributes before parsing to prevent unbound namespace prefix parser errors (e.g. sketch:type)
+      let processed = rawSvg
+      processed = processed.replace(/\s+(?!xmlns:|xlink:|xml:)[a-zA-Z0-9_-]+:[a-zA-Z0-9_-]+="[^"]*"/g, "")
+      processed = processed.replace(/\s+(?!xmlns:|xlink:|xml:)[a-zA-Z0-9_-]+:[a-zA-Z0-9_-]+='[^']*'/g, "")
+
+      try {
+        doc = parser.parseFromString(processed, "image/svg+xml")
+        if (doc.querySelector("parsererror")) {
+          doc = null
+        }
+      } catch (e) {
+        doc = null
+      }
+
+      // Fallback: parse as HTML and extract SVG
+      if (!doc) {
+        const htmlDoc = parser.parseFromString(rawSvg, "text/html")
+        const svgEl = htmlDoc.querySelector("svg")
+        if (svgEl) {
+          doc = parser.parseFromString(svgEl.outerHTML, "image/svg+xml")
+        }
+      }
+
+      if (!doc || doc.querySelector("parsererror")) {
         setError("Invalid SVG code. Please verify the XML structure.")
         return
       }
@@ -425,7 +445,7 @@ function SvgOptimizer() {
                     </button>
                   ) : (
                     <button onClick={handleLoadSample} className="text-xs text-brand hover:underline font-semibold flex items-center gap-1">
-                      <Sparkles className="w-3.5 h-3.5" />
+                      <Play className="w-3 h-3 fill-brand/20" />
                       Load sample SVG
                     </button>
                   )}

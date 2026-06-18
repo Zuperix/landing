@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Shield, Sparkles, Cpu, Code2, Users, Heart, ArrowUpRight, CheckCircle2 } from "lucide-react"
+import { Shield, Zap, Cpu, Code2, Users, Heart, ArrowUpRight, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 
 const PRINCIPLES = [
@@ -13,7 +13,7 @@ const PRINCIPLES = [
     description: "Built with enterprise-grade security protocols. We believe critical creative infrastructure should be secure, reliable, and lightning-fast.",
   },
   {
-    icon: Sparkles,
+    icon: Zap,
     title: "AI Native",
     description: "Designed from day one to leverage advanced AI models. Zuperix doesn't just store files; it deeply understands, tags, and organizes your media automatically.",
   },
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-grid-line opacity-10 pointer-events-none" />
                 <div className="flex justify-between items-start">
                   <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
-                    <Sparkles className="w-5 h-5 fill-brand/20" />
+                    <Zap className="w-5 h-5 fill-brand/20" />
                   </div>
                   <span className="text-xs font-mono text-muted-foreground">AI Powered</span>
                 </div>

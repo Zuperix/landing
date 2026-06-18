@@ -18,7 +18,6 @@ import {
   FileDown,
   Trash2,
   Sliders,
-  Sparkles,
   Info,
   Maximize2,
   Palette,

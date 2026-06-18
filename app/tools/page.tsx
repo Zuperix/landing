@@ -10,8 +10,7 @@ import {
   ShieldCheck, 
   Zap, 
   Download, 
-  ArrowRight,
-  Sparkles
+  ArrowRight
 } from "lucide-react"
 
 const TOOLS = [
@@ -44,6 +43,16 @@ const TOOLS = [
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
     borderColor: "hover:border-emerald-500/30"
+  },
+  {
+    title: "Image to SVG Vectorizer",
+    description: "Convert and trace raster images (PNG, JPEG, WebP) into clean, scalable SVG vector paths completely inside your browser.",
+    href: "/tools/raster-to-svg",
+    icon: FileCode,
+    tags: ["JPG to SVG", "PNG to SVG", "Vector Tracing", "SVG Code"],
+    color: "text-amber-500",
+    bgColor: "bg-amber-500/10",
+    borderColor: "hover:border-amber-500/30"
   }
 ]
 
@@ -114,7 +123,7 @@ export default function ToolsHubPage() {
 
         {/* Tools Cards Grid */}
         <section className="max-w-7xl mx-auto px-6 mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {TOOLS.map((tool) => {
               const Icon = tool.icon
               return (

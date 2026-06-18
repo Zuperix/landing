@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { Bot, Zap, Search, FolderOpen, Tags, Layers, ArrowRight, Sparkles, Copy, Check } from "lucide-react"
+import { Bot, Zap, Search, FolderOpen, Tags, Layers, ArrowRight, Copy, Check } from "lucide-react"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
@@ -325,7 +325,7 @@ export function McpSection() {
               transition={{ delay: 0.1 }}
               className="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-5 mx-auto lg:mx-0"
             >
-              <Sparkles className="w-6 h-6 text-brand" />
+              <Bot className="w-6 h-6 text-brand" />
             </motion.div>
 
             <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">Model Context Protocol</p>
