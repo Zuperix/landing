@@ -49,7 +49,7 @@ const PRICING_TIERS = [
       "Facial Recognition",
       "Video Transcription (1,500 min/mo)",
       "1M API calls/mo",
-      "2TB Cloud Storage",
+      "1TB Cloud Storage",
       "Unlimited Workspaces",
       "99.9% SLA",
     ],
@@ -431,7 +431,7 @@ export default function PricingPage() {
                 </tr>
                 <tr>
                   <td className="py-5 px-4 text-sm font-medium">Included Storage</td>
-                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">2 TB</td>
+                  <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">1 TB</td>
                   <td className="py-5 px-4 text-center bg-brand/5 border-x border-brand/20 text-sm font-bold tracking-tight">250 GB</td>
                   <td className="py-5 px-4 text-center text-sm font-bold tracking-tight">50 GB</td>
                 </tr>
