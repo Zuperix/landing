@@ -38,7 +38,7 @@ export default function PrivacyPage() {
                 <ul className="list-disc pl-6 mt-4 space-y-2 text-muted-foreground">
                   <li>Personal Information Provided by You: We collect names; email addresses; usernames; passwords; and other similar information.</li>
                   <li>Payment Data: If you make purchases, we collect data necessary to process your payment.</li>
-                  <li>Automatically Collected Information: We automatically collect certain information when you visit, use, or navigate the Services.</li>
+                  <li>Automatically Collected Information (including Analytics & Session Recording): We automatically collect certain information when you visit, use, or navigate the Services. This includes session recording, heatmaps, and behavioral metrics captured via Microsoft Clarity. This data is collected strictly for product optimization, error tracking, and usability improvements, and does not record sensitive inputs, credentials, or private vault assets.</li>
                 </ul>
               </section>
 
@@ -48,6 +48,9 @@ export default function PrivacyPage() {
                   We use personal information collected via our Services for a variety of business purposes described below. 
                   We process your personal information for these purposes in reliance on our legitimate business interests, 
                   in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  Specifically, session recording and behavioral tracking collected through Microsoft Clarity are used solely to diagnose technical issues, analyze visitor engagement, and improve the user interface and overall experience of our platform. This data is used exclusively for these internal analytical purposes and is not shared with unauthorized third parties or used for profiling.
                 </p>
               </section>
 

@@ -44,7 +44,18 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">4. Limitation of Liability</h2>
+                <h2 className="text-2xl font-bold mb-4">4. Platform Analytics & Session Recording</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  To monitor system stability, optimize usability, and diagnose platform issues, we employ session recording and behavioral tracking technologies, specifically Microsoft Clarity.
+                </p>
+                <ul className="list-disc pl-6 mt-4 space-y-2 text-muted-foreground">
+                  <li><strong>Purpose:</strong> These tools are used strictly to identify usability issues, track rendering errors, and analyze user engagement patterns to improve the platform interface and user experience.</li>
+                  <li><strong>Restrictions:</strong> Recording is configured to omit and mask all sensitive information, including passwords, payment details, and private vault content. The resulting data is solely for internal development, debugging, and product improvement purposes.</li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">5. Limitation of Liability</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   In no event shall Zuperix, nor its directors, employees, partners, agents, suppliers, or affiliates, 
                   be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, 
@@ -53,7 +64,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">5. Governing Law</h2>
+                <h2 className="text-2xl font-bold mb-4">6. Governing Law</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   These Terms shall be governed and construed in accordance with the laws of the country in which Zuperix 
                   is headquartered, without regard to its conflict of law provisions.
@@ -61,7 +72,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">6. Changes to Terms</h2>
+                <h2 className="text-2xl font-bold mb-4">7. Changes to Terms</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   We reserve the right, at our sole discretion, to modify or replace these Terms at any time. 
                   If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect.
@@ -69,7 +80,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold mb-4">7. Contact Us</h2>
+                <h2 className="text-2xl font-bold mb-4">8. Contact Us</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   If you have questions or comments about these Terms, you may email us at legal@zuperix.com.
                 </p>
