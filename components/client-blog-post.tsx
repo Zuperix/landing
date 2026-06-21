@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
 import { Share2, ArrowLeft, User, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
@@ -19,6 +20,106 @@ export function ClientBlogPost({ post, relatedPosts }: ClientBlogPostProps) {
     restDelta: 0.001
   })
 
+  const [processedContent, setProcessedContent] = useState(post.content)
+  const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([])
+  const [activeId, setActiveId] = useState("")
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(post.content, "text/html")
+    
+    // Find all headings to build TOC and inject IDs
+    const headingElements = doc.querySelectorAll("h2, h3")
+    const extractedHeadings: { id: string; text: string; level: number }[] = []
+
+    headingElements.forEach((el, index) => {
+      const text = el.textContent || ""
+      const slug = text
+        .toLowerCase()
+        .replace(/[^a-z0-9 -]/g, "") // remove invalid characters
+        .replace(/\s+/g, "-")        // replace spaces with hyphens
+        .replace(/-+/g, "-")        // collapse multiple hyphens
+        .trim() || `heading-${index}`
+      
+      el.setAttribute("id", slug)
+      extractedHeadings.push({
+        id: slug,
+        text,
+        level: parseInt(el.tagName.substring(1), 10)
+      })
+    })
+
+    // Find and wrap all table elements for responsiveness
+    const tables = doc.querySelectorAll("table")
+    tables.forEach((table) => {
+      // Create wrapper div
+      const wrapper = doc.createElement("div")
+      wrapper.className = "table-responsive-wrapper overflow-x-auto my-8 rounded-2xl border border-border/50 bg-card/20 backdrop-blur-sm shadow-inner"
+      
+      // Wrap the table
+      if (table.parentNode) {
+        table.parentNode.insertBefore(wrapper, table)
+        wrapper.appendChild(table)
+      }
+    })
+
+    setProcessedContent(doc.body.innerHTML)
+    setHeadings(extractedHeadings)
+  }, [post.content])
+
+  // ScrollSpy implementation
+  useEffect(() => {
+    if (headings.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id)
+          }
+        })
+      },
+      {
+        rootMargin: "-120px 0px -70% 0px" // Trigger when section is in the top portion of screen
+      }
+    )
+
+    headings.forEach((heading) => {
+      const el = document.getElementById(heading.id)
+      if (el) observer.observe(el)
+    })
+
+    return () => {
+      headings.forEach((heading) => {
+        const el = document.getElementById(heading.id)
+        if (el) observer.unobserve(el)
+      })
+    }
+  }, [headings, processedContent])
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (el) {
+      const offset = 120 // height of fixed navbar + safety padding
+      const bodyRect = document.body.getBoundingClientRect().top
+      const elementRect = el.getBoundingClientRect().top
+      const elementPosition = elementRect - bodyRect
+      const offsetPosition = elementPosition - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+      
+      // update URL hash without scrolling
+      window.history.pushState(null, "", `#${id}`)
+      setActiveId(id)
+    }
+  }
+
   return (
     <>
       {/* Scroll Progress Bar */}
@@ -27,12 +128,13 @@ export function ClientBlogPost({ post, relatedPosts }: ClientBlogPostProps) {
         style={{ scaleX }}
       />
       
-      <main className="min-h-screen bg-background relative overflow-hidden pt-32 pb-24 px-6">
+      <main className="min-h-screen bg-background relative overflow-x-clip pt-32 pb-24 px-6">
         {/* Decorative background elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-brand/5 to-transparent pointer-events-none" aria-hidden="true" />
         <div className="absolute top-[10%] left-[10%] w-[400px] h-[400px] bg-brand/3 blur-[120px] rounded-full pointer-events-none" aria-hidden="true" />
         
-        <article className="max-w-3xl mx-auto relative">
+        <div className="max-w-6xl mx-auto relative flex flex-col lg:flex-row gap-12 items-start justify-center">
+          <article className="w-full lg:max-w-3xl flex-1 min-w-0 relative">
           {/* Back Button */}
           <Link 
             href="/blog"
@@ -109,8 +211,8 @@ export function ClientBlogPost({ post, relatedPosts }: ClientBlogPostProps) {
 
           {/* Post Content with explicitly styled spacing */}
           <div 
-            className="blog-content-rendering relative [&>h2]:text-3xl [&>h2]:font-bold [&>h2]:text-white [&>h2]:mt-16 [&>h2]:mb-8 [&>p]:text-lg [&>p]:text-muted-foreground [&>p]:leading-relaxed [&>p]:mb-8 [&>ul]:list-disc [&>ul]:pl-8 [&>ul]:mb-8 [&>li]:text-muted-foreground [&>li]:mb-2 [&>div]:my-16"
-            dangerouslySetInnerHTML={{ __html: post.content }} 
+            className="blog-content-rendering relative [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mt-16 [&_h2]:mb-8 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-white [&_h3]:mt-12 [&_h3]:mb-6 [&_p]:text-lg [&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:mb-8 [&_ul]:list-disc [&_ul]:pl-8 [&_ul]:mb-8 [&_li]:text-muted-foreground [&_li]:mb-2 [&_div]:my-16"
+            dangerouslySetInnerHTML={{ __html: processedContent }} 
           />
 
           {/* Related Articles */}
@@ -177,7 +279,47 @@ export function ClientBlogPost({ post, relatedPosts }: ClientBlogPostProps) {
             </div>
           </footer>
         </article>
-      </main>
-    </>
-  )
+
+        {/* Table of Contents Sticky Sidebar */}
+        {headings.length > 0 && (
+          <aside className="hidden lg:block w-64 sticky top-36 self-start shrink-0">
+            <div className="border border-border/40 bg-card/10 backdrop-blur-md rounded-3xl p-6 shadow-xl relative overflow-hidden group">
+              {/* Subtle hover background glow */}
+              <div className="absolute top-0 right-0 w-16 h-16 bg-brand/5 blur-xl rounded-full pointer-events-none" />
+              
+              <h3 className="text-xs font-bold uppercase tracking-wider text-white border-b border-border/40 pb-3 mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+                Table of Contents
+              </h3>
+              
+              <nav>
+                <ul className="space-y-3.5 text-[13px]">
+                  {headings.map((heading) => (
+                    <li 
+                      key={heading.id}
+                      style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
+                      className="relative"
+                    >
+                      <a
+                        href={`#${heading.id}`}
+                        onClick={(e) => handleScrollTo(e, heading.id)}
+                        className={`block transition-all duration-300 ${
+                          activeId === heading.id 
+                            ? "text-brand font-semibold border-l-2 border-brand pl-3 -ml-[2px] translate-x-0.5" 
+                            : "text-muted-foreground hover:text-white border-l-2 border-transparent pl-3 -ml-[2px] hover:translate-x-0.5"
+                        }`}
+                      >
+                        {heading.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        )}
+      </div>
+    </main>
+  </>
+)
 }
